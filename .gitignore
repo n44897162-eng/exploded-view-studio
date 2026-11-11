@@ -1,0 +1,17 @@
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# QA tooling and transient browser artifacts
+node_modules/
+.qa-tools/
+.qa-cache/
+.chrome-*/
+.edge-*/
+qa-output/
+*.log
+
+# Generated project output (keep the repo clean; build outside or ignore it)
+dist/
+build/

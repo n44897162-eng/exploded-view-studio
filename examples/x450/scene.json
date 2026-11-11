@@ -1,0 +1,1762 @@
+{
+  "meta": {
+    "brand": "AEROLAB",
+    "project": "X450",
+    "revision": "REV. 03",
+    "category": "QUADROTOR / 450 MM",
+    "kicker": "PROCEDURAL FLIGHT SYSTEM"
+  },
+  "product": {
+    "name": "X450",
+    "model": "X450-Q",
+    "cn": "四旋翼无人机",
+    "tagline": "10-INCH / 450 MM WHEELBASE / 6S",
+    "totalMass": 1072,
+    "massCode": "AUW-1072",
+    "massCaption": "10-INCH PROP / 6S"
+  },
+  "camera": {
+    "fov": 34,
+    "theta": 0.7,
+    "phi": 1.12,
+    "target": [
+      0,
+      0.04,
+      0
+    ],
+    "autoSpeed": 0.06,
+    "fitPadding": 0.9,
+    "minRadius": 3,
+    "maxRadius": 38
+  },
+  "design": {
+    "preset": "signal",
+    "layout": "panorama",
+    "density": "compact",
+    "corners": "square",
+    "backdrop": "grid",
+    "typography": "technical",
+    "chrome": "technical"
+  },
+  "palette": {
+    "body": 3292486,
+    "bodyLight": 10003890,
+    "dark": 725269,
+    "accent": 13172541,
+    "cyan": 16727425
+  },
+  "modules": [
+    {
+      "id": "01",
+      "code": "FRAME",
+      "title": "碳纤维 X 型机架",
+      "en": "CARBON X-FRAME",
+      "category": "STRUCTURE",
+      "mass": 188,
+      "base": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.45,
+        0.18,
+        -0.95
+      ],
+      "anchor": [
+        0,
+        0.3,
+        0
+      ],
+      "description": "上下碳板、四根锥形机臂与中央承载件组成 X 型承力结构，机臂根部通过金属夹持件与主板连接。",
+      "specs": [
+        [
+          "轴距",
+          "450 mm"
+        ],
+        [
+          "机臂",
+          "3K 碳纤维 / 锥形"
+        ],
+        [
+          "中央板",
+          "2.0 mm 碳板"
+        ],
+        [
+          "安装孔位",
+          "30.5 × 30.5 mm"
+        ]
+      ],
+      "components": [
+        "上/下碳板",
+        "四根锥形机臂",
+        "机臂夹持件",
+        "导航灯"
+      ],
+      "insight": "机臂从根部向电机端收窄，在保持刚度的同时让桨盘气流更干净；夹持件把弯矩分散到上下碳板。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            1.74,
+            0.045,
+            1.52
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            1.6,
+            0.035,
+            1.4
+          ],
+          "pos": [
+            0,
+            0.14,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            2.2,
+            0.07,
+            0.14
+          ],
+          "pos": [
+            0.85,
+            0.07,
+            0.85
+          ],
+          "rot": [
+            0,
+            -0.785,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            2.2,
+            0.07,
+            0.14
+          ],
+          "pos": [
+            -0.85,
+            0.07,
+            0.85
+          ],
+          "rot": [
+            0,
+            0.785,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            2.2,
+            0.07,
+            0.14
+          ],
+          "pos": [
+            0.85,
+            0.07,
+            -0.85
+          ],
+          "rot": [
+            0,
+            0.785,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            2.2,
+            0.07,
+            0.14
+          ],
+          "pos": [
+            -0.85,
+            0.07,
+            -0.85
+          ],
+          "rot": [
+            0,
+            -0.785,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.52,
+            0.03,
+            0.52
+          ],
+          "pos": [
+            1.55,
+            0.13,
+            1.55
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.52,
+            0.03,
+            0.52
+          ],
+          "pos": [
+            -1.55,
+            0.13,
+            1.55
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.52,
+            0.03,
+            0.52
+          ],
+          "pos": [
+            1.55,
+            0.13,
+            -1.55
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.52,
+            0.03,
+            0.52
+          ],
+          "pos": [
+            -1.55,
+            0.13,
+            -1.55
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "sphere",
+          "radius": 0.5,
+          "scale": [
+            1.05,
+            0.42,
+            1.35
+          ],
+          "pos": [
+            0,
+            0.25,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.02,
+          "height": 1.1,
+          "axis": "z",
+          "pos": [
+            0,
+            0.39,
+            0.65
+          ],
+          "mat": "accent"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "code": "PROP-FR",
+      "title": "前右动力单元",
+      "en": "FRONT-RIGHT PROPULSION",
+      "category": "PROPULSION",
+      "mass": 86,
+      "base": [
+        1.59,
+        0,
+        1.59
+      ],
+      "offset": [
+        0.86,
+        0.72,
+        0.86
+      ],
+      "anchor": [
+        0,
+        0.62,
+        0
+      ],
+      "description": "前右 2812 无刷电机、ESC 与三叶桨组成独立动力单元，顺时针旋转产生升力。",
+      "specs": [
+        [
+          "电机",
+          "2812 / 900 KV"
+        ],
+        [
+          "桨",
+          "10 × 4.5 三叶"
+        ],
+        [
+          "电调",
+          "45 A BLHeli"
+        ],
+        [
+          "转向",
+          "CW"
+        ]
+      ],
+      "components": [
+        "无刷外转子",
+        "三叶碳桨",
+        "ESC",
+        "相位线"
+      ],
+      "insight": "对角电机同向旋转，相邻电机反向旋转，抵消反扭矩；电机座与机臂之间加入减振垫。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.19,
+          "height": 0.16,
+          "pos": [
+            0,
+            0.22,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.17,
+          "height": 0.14,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "torus",
+          "radius": 0.17,
+          "tube": 0.018,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.03,
+          "height": 0.18,
+          "pos": [
+            0,
+            0.48,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            0.48,
+            0.56,
+            0
+          ],
+          "rot": [
+            0,
+            0.2,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            0.42
+          ],
+          "rot": [
+            0,
+            2.3,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            -0.42
+          ],
+          "rot": [
+            0,
+            -1.9,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.34,
+            0.03,
+            0.24
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "pcb"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "code": "PROP-RR",
+      "title": "后右动力单元",
+      "en": "REAR-RIGHT PROPULSION",
+      "category": "PROPULSION",
+      "mass": 86,
+      "base": [
+        1.59,
+        0,
+        -1.59
+      ],
+      "offset": [
+        0.86,
+        0.72,
+        -0.86
+      ],
+      "anchor": [
+        0,
+        0.62,
+        0
+      ],
+      "description": "后右 2812 动力单元采用逆时针桨，与前右形成对角同步。",
+      "specs": [
+        [
+          "电机",
+          "2812 / 900 KV"
+        ],
+        [
+          "桨",
+          "10 × 4.5 三叶"
+        ],
+        [
+          "电调",
+          "45 A BLHeli"
+        ],
+        [
+          "转向",
+          "CCW"
+        ]
+      ],
+      "components": [
+        "无刷外转子",
+        "三叶碳桨",
+        "ESC",
+        "相位线"
+      ],
+      "insight": "电机线沿机臂内部走线，避免外露；ESC 贴在机臂下表面以利用桨洗冷却。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.19,
+          "height": 0.16,
+          "pos": [
+            0,
+            0.22,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.17,
+          "height": 0.14,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "torus",
+          "radius": 0.17,
+          "tube": 0.018,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.03,
+          "height": 0.18,
+          "pos": [
+            0,
+            0.48,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            0.48,
+            0.56,
+            0
+          ],
+          "rot": [
+            0,
+            0.2,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            0.42
+          ],
+          "rot": [
+            0,
+            2.3,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            -0.42
+          ],
+          "rot": [
+            0,
+            -1.9,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.34,
+            0.03,
+            0.24
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "pcb"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "code": "PROP-RL",
+      "title": "后左动力单元",
+      "en": "REAR-LEFT PROPULSION",
+      "category": "PROPULSION",
+      "mass": 86,
+      "base": [
+        -1.59,
+        0,
+        -1.59
+      ],
+      "offset": [
+        -0.86,
+        0.72,
+        -0.86
+      ],
+      "anchor": [
+        0,
+        0.62,
+        0
+      ],
+      "description": "后左动力单元与前右对角同步，为机体提供稳定的升力与偏航控制。",
+      "specs": [
+        [
+          "电机",
+          "2812 / 900 KV"
+        ],
+        [
+          "桨",
+          "10 × 4.5 三叶"
+        ],
+        [
+          "电调",
+          "45 A BLHeli"
+        ],
+        [
+          "转向",
+          "CW"
+        ]
+      ],
+      "components": [
+        "无刷外转子",
+        "三叶碳桨",
+        "ESC",
+        "相位线"
+      ],
+      "insight": "对角电机共享同一路控制信号，飞控通过差速分配实现三轴姿态控制。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.19,
+          "height": 0.16,
+          "pos": [
+            0,
+            0.22,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.17,
+          "height": 0.14,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "torus",
+          "radius": 0.17,
+          "tube": 0.018,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.03,
+          "height": 0.18,
+          "pos": [
+            0,
+            0.48,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            0.48,
+            0.56,
+            0
+          ],
+          "rot": [
+            0,
+            0.2,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            0.42
+          ],
+          "rot": [
+            0,
+            2.3,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            -0.42
+          ],
+          "rot": [
+            0,
+            -1.9,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.34,
+            0.03,
+            0.24
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "pcb"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "code": "PROP-FL",
+      "title": "前左动力单元",
+      "en": "FRONT-LEFT PROPULSION",
+      "category": "PROPULSION",
+      "mass": 86,
+      "base": [
+        -1.59,
+        0,
+        1.59
+      ],
+      "offset": [
+        -0.86,
+        0.72,
+        0.86
+      ],
+      "anchor": [
+        0,
+        0.62,
+        0
+      ],
+      "description": "前左动力单元与后右对角同步，为前向飞行与滚转控制提供差速推力。",
+      "specs": [
+        [
+          "电机",
+          "2812 / 900 KV"
+        ],
+        [
+          "桨",
+          "10 × 4.5 三叶"
+        ],
+        [
+          "电调",
+          "45 A BLHeli"
+        ],
+        [
+          "转向",
+          "CCW"
+        ]
+      ],
+      "components": [
+        "无刷外转子",
+        "三叶碳桨",
+        "ESC",
+        "相位线"
+      ],
+      "insight": "前左电机座预留了指南针线束的独立走线槽，避免与三相动力线并行。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.19,
+          "height": 0.16,
+          "pos": [
+            0,
+            0.22,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.17,
+          "height": 0.14,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "torus",
+          "radius": 0.17,
+          "tube": 0.018,
+          "pos": [
+            0,
+            0.36,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.03,
+          "height": 0.18,
+          "pos": [
+            0,
+            0.48,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            0.48,
+            0.56,
+            0
+          ],
+          "rot": [
+            0,
+            0.2,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            0.42
+          ],
+          "rot": [
+            0,
+            2.3,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.95,
+            0.018,
+            0.14
+          ],
+          "pos": [
+            -0.24,
+            0.56,
+            -0.42
+          ],
+          "rot": [
+            0,
+            -1.9,
+            0
+          ],
+          "mat": "prop"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.34,
+            0.03,
+            0.24
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "pcb"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "code": "AVIONICS",
+      "title": "F7 飞控 / 电源堆栈",
+      "en": "F7 FLIGHT STACK",
+      "category": "AVIONICS",
+      "mass": 62,
+      "base": [
+        0,
+        0.1,
+        -0.02
+      ],
+      "offset": [
+        0.1,
+        1,
+        -0.1
+      ],
+      "anchor": [
+        0,
+        0.15,
+        0
+      ],
+      "description": "F7 飞控、PDB 与减振座构成飞控堆栈，负责姿态解算、电机输出与电源分配。",
+      "specs": [
+        [
+          "飞控",
+          "STM32F7 / 216 MHz"
+        ],
+        [
+          "陀螺仪",
+          "双 IMU"
+        ],
+        [
+          "PDB",
+          "6S / 120 A"
+        ],
+        [
+          "固件",
+          "ArduPilot / PX4"
+        ]
+      ],
+      "components": [
+        "F7 飞控板",
+        "PDB 分电板",
+        "橡胶减振柱",
+        "USB-C 调试口"
+      ],
+      "insight": "飞控与机架之间使用软连接，降低桨叶振动对陀螺仪的影响；双 IMU 做冗余仲裁。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.48,
+            0.035,
+            0.4
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "pcb"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.36,
+            0.03,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.05,
+            0
+          ],
+          "mat": "pcbLight"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.12,
+            0.045,
+            0.12
+          ],
+          "pos": [
+            -0.08,
+            0.075,
+            0
+          ],
+          "mat": "chip"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.16,
+            0.03,
+            0.12
+          ],
+          "pos": [
+            0.01,
+            0.075,
+            0.1
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.05,
+          "pos": [
+            0.18,
+            0.06,
+            -0.13
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.05,
+          "pos": [
+            -0.18,
+            0.06,
+            -0.13
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.05,
+          "pos": [
+            0.18,
+            0.06,
+            0.13
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.05,
+          "pos": [
+            -0.18,
+            0.06,
+            0.13
+          ],
+          "mat": "copper"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "code": "GNSS",
+      "title": "GNSS / 罗盘模块",
+      "en": "GNSS / COMPASS",
+      "category": "NAVIGATION",
+      "mass": 28,
+      "base": [
+        0,
+        0.38,
+        -0.46
+      ],
+      "offset": [
+        0,
+        1.7,
+        -0.28
+      ],
+      "anchor": [
+        0,
+        0.12,
+        0
+      ],
+      "description": "GNSS 与磁罗盘安装在碳纤维桅杆上，远离电机与电源线的磁场干扰。",
+      "specs": [
+        [
+          "定位",
+          "GPS / GLONASS / Galileo"
+        ],
+        [
+          "罗盘",
+          "IST8310"
+        ],
+        [
+          "更新率",
+          "10 Hz"
+        ],
+        [
+          "供电",
+          "5 V"
+        ]
+      ],
+      "components": [
+        "陶瓷天线",
+        "GNSS 接收板",
+        "磁罗盘",
+        "碳纤桅杆"
+      ],
+      "insight": "桅杆高度经过电磁仿真，让罗盘远离动力线束；天线地平面与碳板保持独立。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.5,
+          "pos": [
+            0,
+            0.1,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.16,
+            0.03,
+            0.16
+          ],
+          "pos": [
+            0,
+            0.34,
+            0
+          ],
+          "mat": "pcb"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.13,
+          "height": 0.06,
+          "pos": [
+            0,
+            0.39,
+            0
+          ],
+          "mat": "white"
+        },
+        {
+          "type": "torus",
+          "radius": 0.09,
+          "tube": 0.008,
+          "pos": [
+            0,
+            0.42,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.02,
+            0.04
+          ],
+          "pos": [
+            0.08,
+            0.36,
+            0.06
+          ],
+          "mat": "cyan"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "code": "GIMBAL",
+      "title": "三轴云台相机",
+      "en": "3-AXIS GIMBAL CAMERA",
+      "category": "PAYLOAD",
+      "mass": 96,
+      "base": [
+        0,
+        -0.02,
+        0.58
+      ],
+      "offset": [
+        0,
+        -1,
+        0.8
+      ],
+      "anchor": [
+        0,
+        -0.2,
+        0.15
+      ],
+      "description": "三轴增稳云台把 1 英寸传感器相机与机身振动隔离，提供俯仰、横滚与航向稳定。",
+      "specs": [
+        [
+          "传感器",
+          "1″ CMOS"
+        ],
+        [
+          "视频",
+          "4K 60P"
+        ],
+        [
+          "稳定轴",
+          "3 轴"
+        ],
+        [
+          "云台",
+          "磁编码 / 无刷"
+        ]
+      ],
+      "components": [
+        "云台减振板",
+        "三轴无刷电机",
+        "相机模组",
+        "控制排线"
+      ],
+      "insight": "云台控制环把 IMU 放在相机背部，缩短控制闭环；三根排线留出足够弯折余量。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.36,
+            0.04,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.08,
+          "height": 0.12,
+          "pos": [
+            0,
+            0.02,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.08,
+            0.24,
+            0.08
+          ],
+          "pos": [
+            0.13,
+            -0.1,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.08,
+          "height": 0.12,
+          "axis": "x",
+          "pos": [
+            0.22,
+            -0.18,
+            0
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.3,
+            0.24,
+            0.22
+          ],
+          "pos": [
+            0,
+            -0.3,
+            0.1
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.07,
+          "height": 0.12,
+          "axis": "z",
+          "pos": [
+            0,
+            -0.3,
+            0.27
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.055,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            0,
+            -0.3,
+            0.35
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "torus",
+          "radius": 0.06,
+          "tube": 0.012,
+          "pos": [
+            0,
+            -0.3,
+            0.36
+          ],
+          "mat": "accent"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "code": "BATTERY",
+      "title": "6S 智能电池",
+      "en": "6S SMART BATTERY",
+      "category": "POWER",
+      "mass": 312,
+      "base": [
+        0,
+        -0.31,
+        -0.03
+      ],
+      "offset": [
+        0.1,
+        -1.35,
+        -0.4
+      ],
+      "anchor": [
+        0,
+        0.1,
+        0
+      ],
+      "description": "6S 锂聚合物电池通过 XT60 与 PDB 连接，内置电量计和单体电压监测。",
+      "specs": [
+        [
+          "电压",
+          "22.2 V / 6S"
+        ],
+        [
+          "容量",
+          "3000 mAh"
+        ],
+        [
+          "能量",
+          "66.6 Wh"
+        ],
+        [
+          "持续放电",
+          "25C"
+        ]
+      ],
+      "components": [
+        "6S 电芯",
+        "XT60 插头",
+        "BMS 板",
+        "防滑绑带"
+      ],
+      "insight": "电池位于机体几何中心下方，降低重心；绑带与电池座之间加入阻燃隔离层。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.92,
+            0.24,
+            0.62
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.8,
+            0.015,
+            0.48
+          ],
+          "pos": [
+            0,
+            0.13,
+            0
+          ],
+          "mat": "white"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.86,
+            0.06,
+            0.04
+          ],
+          "pos": [
+            0,
+            0.02,
+            -0.32
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.12,
+            0.08,
+            0.08
+          ],
+          "pos": [
+            0.34,
+            0.02,
+            -0.34
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.98,
+            0.035,
+            0.04
+          ],
+          "pos": [
+            0,
+            0,
+            0.18
+          ],
+          "mat": "black"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "code": "GEAR",
+      "title": "碳纤维起落架",
+      "en": "CARBON LANDING GEAR",
+      "category": "STRUCTURE",
+      "mass": 42,
+      "base": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        0,
+        -1.85,
+        0.15
+      ],
+      "anchor": [
+        0,
+        -0.4,
+        0
+      ],
+      "description": "两根碳纤维滑橇通过四条支腿与机身连接，为云台和电池提供离地间隙。",
+      "specs": [
+        [
+          "滑橇",
+          "16 mm 碳管"
+        ],
+        [
+          "支腿",
+          "4 × 碳板"
+        ],
+        [
+          "离地间隙",
+          "92 mm"
+        ],
+        [
+          "脚垫",
+          "TPU 减振"
+        ]
+      ],
+      "components": [
+        "碳纤滑橇",
+        "支腿",
+        "TPU 脚垫",
+        "金属夹持件"
+      ],
+      "insight": "滑橇间距大于云台宽度，侧倾着陆时先接触地面，避免云台直接受力。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 1.3,
+          "axis": "z",
+          "pos": [
+            -0.6,
+            -0.82,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 1.3,
+          "axis": "z",
+          "pos": [
+            0.6,
+            -0.82,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.7,
+            0.05
+          ],
+          "pos": [
+            -0.45,
+            -0.5,
+            0.38
+          ],
+          "rot": [
+            0,
+            0,
+            0.2
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.7,
+            0.05
+          ],
+          "pos": [
+            0.45,
+            -0.5,
+            0.38
+          ],
+          "rot": [
+            0,
+            0,
+            -0.2
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.7,
+            0.05
+          ],
+          "pos": [
+            -0.45,
+            -0.5,
+            -0.38
+          ],
+          "rot": [
+            0,
+            0,
+            0.2
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.7,
+            0.05
+          ],
+          "pos": [
+            0.45,
+            -0.5,
+            -0.38
+          ],
+          "rot": [
+            0,
+            0,
+            -0.2
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "sphere",
+          "radius": 0.055,
+          "pos": [
+            -0.6,
+            -0.82,
+            0.62
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "sphere",
+          "radius": 0.055,
+          "pos": [
+            0.6,
+            -0.82,
+            0.62
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "torus",
+          "radius": 0.038,
+          "tube": 0.012,
+          "pos": [
+            -0.6,
+            -0.82,
+            0.28
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "torus",
+          "radius": 0.038,
+          "tube": 0.012,
+          "pos": [
+            0.6,
+            -0.82,
+            0.28
+          ],
+          "mat": "accent"
+        }
+      ]
+    }
+  ],
+  "research": {
+    "mode": "similar-product",
+    "confidence": "medium",
+    "sources": [
+      {
+        "title": "Wikipedia - Quadcopter",
+        "url": "https://en.wikipedia.org/wiki/Quadcopter",
+        "usedFor": "X-frame layout, motor spacing and avionics stack"
+      },
+      {
+        "title": "Wikipedia - Unmanned aerial vehicle",
+        "url": "https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle",
+        "usedFor": "general component hierarchy and camera payload proportions"
+      }
+    ],
+    "assumptions": [
+      "AEROLAB X450 is an original concept; no logos, trade dress or proprietary CAD were copied.",
+      "Mass and dimensions are representative, not manufacturer specifications."
+    ]
+  },
+  "assembly": {
+    "tolerance": 0.004,
+    "internal": [
+      "06"
+    ],
+    "mates": [
+      {
+        "modules": [
+          "01",
+          "02"
+        ],
+        "reason": "front-right motor pod fastened to the arm mount"
+      },
+      {
+        "modules": [
+          "01",
+          "03"
+        ],
+        "reason": "rear-right motor pod fastened to the arm mount"
+      },
+      {
+        "modules": [
+          "01",
+          "04"
+        ],
+        "reason": "rear-left motor pod fastened to the arm mount"
+      },
+      {
+        "modules": [
+          "01",
+          "05"
+        ],
+        "reason": "front-left motor pod fastened to the arm mount"
+      },
+      {
+        "modules": [
+          "01",
+          "07"
+        ],
+        "reason": "GNSS mast foot seated in the frame mast socket"
+      },
+      {
+        "modules": [
+          "01",
+          "08"
+        ],
+        "reason": "gimbal isolation plate bolted under the nose"
+      },
+      {
+        "modules": [
+          "01",
+          "09"
+        ],
+        "reason": "battery seated in the frame tray"
+      }
+    ],
+    "review": {
+      "status": "passed",
+      "reviewedAt": "2026-11-11",
+      "notes": "Static collision check clean after declaring structural join interfaces; assembled and 50%/100% exploded views reviewed for module seams and hidden geometry."
+    }
+  }
+}

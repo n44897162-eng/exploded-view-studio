@@ -1,0 +1,1691 @@
+{
+  "meta": {
+    "brand": "AEROLAB",
+    "project": "V1",
+    "revision": "REV. 01",
+    "category": "FULL-FRAME MIRRORLESS",
+    "kicker": "PROCEDURAL OPTICAL SYSTEM"
+  },
+  "product": {
+    "name": "V1",
+    "model": "V1-FF",
+    "cn": "全画幅无反相机",
+    "tagline": "45 MP / 8K 30P / 5-AXIS IBIS",
+    "totalMass": 1502,
+    "massCode": "MS-1502",
+    "massCaption": "CONCEPT LENS 24–70 F2.8"
+  },
+  "camera": {
+    "fov": 34,
+    "theta": 0.78,
+    "phi": 1.04,
+    "target": [
+      0,
+      0.08,
+      0.28
+    ],
+    "autoSpeed": 0.05,
+    "fitPadding": 1.12,
+    "minRadius": 2.5,
+    "maxRadius": 32
+  },
+  "design": {
+    "preset": "atelier",
+    "layout": "focus",
+    "density": "airy",
+    "corners": "soft",
+    "backdrop": "horizon",
+    "typography": "editorial",
+    "chrome": "minimal",
+    "colors": {
+      "accent": "#2d5c50",
+      "alt": "#a3633e"
+    }
+  },
+  "palette": {
+    "body": 3621451,
+    "bodyLight": 7438475,
+    "dark": 1382943,
+    "accent": 2972752,
+    "cyan": 10707774
+  },
+  "modules": [
+    {
+      "id": "01",
+      "code": "FRAME",
+      "title": "镁合金机身框架",
+      "en": "MAGNESIUM BODY FRAME",
+      "category": "STRUCTURE",
+      "mass": 228,
+      "base": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1.55,
+        0.1,
+        -0.52
+      ],
+      "anchor": [
+        0,
+        0.42,
+        -0.18
+      ],
+      "description": "镁合金压铸框架构成相机的主承力路径，前壳围绕镜头卡口形成闭环，侧板与后框共同约束主板、传感器与散热组件。",
+      "specs": [
+        [
+          "框架材质",
+          "AZ91D 镁合金"
+        ],
+        [
+          "外形尺寸",
+          "150.7 × 103.5 × 81.5 mm"
+        ],
+        [
+          "防护等级",
+          "IP53 防尘防滴"
+        ],
+        [
+          "接口结构",
+          "不锈钢 / 12-PIN"
+        ]
+      ],
+      "components": [
+        "前壳与镜头开口",
+        "上/下承力框",
+        "侧板与散热窗",
+        "三脚架接口"
+      ],
+      "insight": "镜头卡口周边采用闭环肋骨，把镜头载荷直接传入机身主框，避免前壳局部受力。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            1.5,
+            0.92,
+            0.58
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            1.38,
+            0.82,
+            0.035
+          ],
+          "pos": [
+            0,
+            0,
+            0.3
+          ],
+          "mat": "bodyLight"
+        },
+        {
+          "type": "box",
+          "size": [
+            1.3,
+            0.06,
+            0.48
+          ],
+          "pos": [
+            0,
+            0.51,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            1.26,
+            0.05,
+            0.42
+          ],
+          "pos": [
+            0,
+            -0.5,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "torus",
+          "radius": 0.415,
+          "tube": 0.032,
+          "pos": [
+            0,
+            0.02,
+            0.325
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "torus",
+          "radius": 0.39,
+          "tube": 0.012,
+          "pos": [
+            0,
+            0.02,
+            0.345
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.04,
+            0.72,
+            0.46
+          ],
+          "pos": [
+            -0.76,
+            0,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.04,
+            0.72,
+            0.46
+          ],
+          "pos": [
+            0.76,
+            0,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.42,
+            0.018,
+            0.02
+          ],
+          "pos": [
+            0.42,
+            -0.39,
+            0.312
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.2,
+            0.03,
+            0.1
+          ],
+          "pos": [
+            0.52,
+            0.42,
+            0.12
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.055,
+          "height": 0.032,
+          "axis": "z",
+          "pos": [
+            0.58,
+            -0.19,
+            0.31
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.03,
+          "height": 0.012,
+          "axis": "z",
+          "pos": [
+            0.58,
+            -0.19,
+            0.33
+          ],
+          "mat": "accent"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "code": "SENSOR",
+      "title": "全画幅传感器 / 五轴 IBIS",
+      "en": "FULL-FRAME SENSOR / 5-AXIS IBIS",
+      "category": "IMAGING",
+      "mass": 96,
+      "base": [
+        0,
+        0.02,
+        0.08
+      ],
+      "offset": [
+        0.7,
+        0.95,
+        0.55
+      ],
+      "anchor": [
+        0,
+        0.03,
+        0.14
+      ],
+      "description": "背照式全画幅传感器安装在五轴浮动平台上，以电磁线圈抵消手持拍摄的俯仰、偏航与滚转抖动。",
+      "specs": [
+        [
+          "有效像素",
+          "45 MP"
+        ],
+        [
+          "传感器尺寸",
+          "35.9 × 23.9 mm"
+        ],
+        [
+          "防抖补偿",
+          "5 轴 / 8 档"
+        ],
+        [
+          "读取架构",
+          "堆栈式 BSI CMOS"
+        ]
+      ],
+      "components": [
+        "BSI 感光晶圆",
+        "IBIS 浮动框",
+        "四组驱动线圈",
+        "柔性排线"
+      ],
+      "insight": "传感器与卡口解耦，浮动平台只承担成像面稳定；长曝光时由电磁定心机构把偏移压回零位。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.46,
+            0.34,
+            0.08
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.36,
+            0.24,
+            0.026
+          ],
+          "pos": [
+            0,
+            0,
+            0.055
+          ],
+          "mat": "sensor"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.4,
+            0.3,
+            0.02
+          ],
+          "pos": [
+            0,
+            -0.045,
+            -0.03
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            -0.17,
+            0.12,
+            -0.055
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            0.17,
+            0.12,
+            -0.055
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            -0.17,
+            -0.12,
+            -0.055
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.035,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            0.17,
+            -0.12,
+            -0.055
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.07,
+            0.2,
+            0.012
+          ],
+          "pos": [
+            0.23,
+            0.02,
+            -0.02
+          ],
+          "mat": "copper"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "code": "SHUTTER",
+      "title": "快门 / 镜头卡口组件",
+      "en": "SHUTTER / MOUNT",
+      "category": "MECHANISM",
+      "mass": 112,
+      "base": [
+        0,
+        0.01,
+        0.3
+      ],
+      "offset": [
+        0.35,
+        0.55,
+        1.15
+      ],
+      "anchor": [
+        0,
+        0.03,
+        0.38
+      ],
+      "description": "机械快门、卡口环与电子触点构成成像链路的入口。卡口环同时承担镜头的机械定心和数据连接。",
+      "specs": [
+        [
+          "快门类型",
+          "机械 / 电子前帘"
+        ],
+        [
+          "最高速度",
+          "1/8000 s"
+        ],
+        [
+          "卡口",
+          "V-MOUNT / 12-PIN"
+        ],
+        [
+          "同步速度",
+          "1/250 s"
+        ]
+      ],
+      "components": [
+        "钛合金卡口环",
+        "焦平面快门组",
+        "12-PIN 触点",
+        "防尘胶圈"
+      ],
+      "insight": "卡口环采用三点定位，让镜头光轴在装配后仍可微调；快门组独立悬挂以降低机身共振。",
+      "parts": [
+        {
+          "type": "torus",
+          "radius": 0.4,
+          "tube": 0.062,
+          "pos": [
+            0,
+            0,
+            0.1
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.36,
+          "height": 0.06,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.02
+          ],
+          "mat": "steel"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.32,
+            0.24,
+            0.025
+          ],
+          "pos": [
+            0,
+            0,
+            -0.025
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.3,
+            0.035,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rot": [
+            0,
+            0,
+            0.26
+          ],
+          "mat": "steel"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.3,
+            0.035,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rot": [
+            0,
+            0,
+            1.04
+          ],
+          "mat": "steel"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.3,
+            0.035,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rot": [
+            0,
+            0,
+            1.83
+          ],
+          "mat": "steel"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.3,
+            0.035,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rot": [
+            0,
+            0,
+            2.62
+          ],
+          "mat": "steel"
+        },
+        {
+          "type": "torus",
+          "radius": 0.335,
+          "tube": 0.012,
+          "pos": [
+            0,
+            0,
+            0.14
+          ],
+          "mat": "accent"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "code": "EVF",
+      "title": "EVF / 顶盖组件",
+      "en": "EVF / TOP COVER",
+      "category": "ELECTRONICS",
+      "mass": 74,
+      "base": [
+        0,
+        0.55,
+        -0.02
+      ],
+      "offset": [
+        0,
+        1.45,
+        -0.15
+      ],
+      "anchor": [
+        0,
+        0.7,
+        -0.16
+      ],
+      "description": "顶部组集成 0.64 英寸 OLED 取景器、热靴和机械拨盘，用一条独立 FPC 与主板连接。",
+      "specs": [
+        [
+          "取景器",
+          "0.64″ OLED / 5.76 M"
+        ],
+        [
+          "刷新率",
+          "120 fps"
+        ],
+        [
+          "热靴",
+          "多功能 MI 接口"
+        ],
+        [
+          "拨盘",
+          "双滚花机械拨盘"
+        ]
+      ],
+      "components": [
+        "OLED 目镜组",
+        "棱镜 / 目镜",
+        "热靴触点",
+        "拨盘编码器"
+      ],
+      "insight": "取景器光路与顶盖一体压铸，减少目镜同轴度误差；热靴数据线绕开取景器排线布置。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.5,
+            0.2,
+            0.38
+          ],
+          "pos": [
+            0,
+            0.06,
+            0
+          ],
+          "mat": "body"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.4,
+            0.04,
+            0.3
+          ],
+          "pos": [
+            0,
+            0.18,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.34,
+            0.16,
+            0.08
+          ],
+          "pos": [
+            0,
+            0.05,
+            -0.22
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "plane",
+          "width": 0.26,
+          "height": 0.14,
+          "pos": [
+            0,
+            0.05,
+            -0.265
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.26,
+            0.014,
+            0.16
+          ],
+          "pos": [
+            0,
+            0.205,
+            -0.02
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.18,
+            0.028,
+            0.12
+          ],
+          "pos": [
+            0,
+            0.235,
+            -0.02
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.07,
+          "height": 0.035,
+          "pos": [
+            -0.46,
+            0.2,
+            0.08
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.055,
+          "height": 0.028,
+          "pos": [
+            -0.33,
+            0.2,
+            0.1
+          ],
+          "mat": "dark"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "code": "MAINBOARD",
+      "title": "图像处理主板",
+      "en": "IMAGE PROCESSING BOARD",
+      "category": "COMPUTE",
+      "mass": 88,
+      "base": [
+        0,
+        -0.03,
+        -0.19
+      ],
+      "offset": [
+        -0.45,
+        0.85,
+        -0.95
+      ],
+      "anchor": [
+        0,
+        0.02,
+        -0.18
+      ],
+      "description": "主板承载图像处理器、双核 ISP、缓存与存储控制器。高密度互连把传感器原始数据送到处理链。",
+      "specs": [
+        [
+          "处理器",
+          "8-core ISP / NPU"
+        ],
+        [
+          "视频",
+          "8K 30P / 4K 120P"
+        ],
+        [
+          "缓存",
+          "8 GB LPDDR5"
+        ],
+        [
+          "存储",
+          "CFexpress Type B"
+        ]
+      ],
+      "components": [
+        "图像处理 SoC",
+        "LPDDR5 缓存",
+        "电源管理 IC",
+        "屏蔽罩"
+      ],
+      "insight": "处理器与传感器之间采用等长差分对，减少高速读取时的时钟偏斜；主板地平面兼作散热扩散层。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.64,
+            0.03,
+            0.4
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "pcb"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.2,
+            0.035,
+            0.2
+          ],
+          "pos": [
+            -0.1,
+            0.03,
+            0.02
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.16,
+            0.028,
+            0.12
+          ],
+          "pos": [
+            0.17,
+            0.028,
+            -0.02
+          ],
+          "mat": "chip"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.14,
+            0.02,
+            0.08
+          ],
+          "pos": [
+            0.14,
+            0.025,
+            0.13
+          ],
+          "mat": "pcbLight"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.06,
+            0.012,
+            0.06
+          ],
+          "pos": [
+            -0.27,
+            0.026,
+            0.13
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.02,
+            0.012,
+            0.34
+          ],
+          "pos": [
+            0.25,
+            0.033,
+            0
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.02,
+            0.012,
+            0.26
+          ],
+          "pos": [
+            -0.24,
+            0.033,
+            -0.03
+          ],
+          "mat": "copper"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "code": "BATTERY",
+      "title": "智能电池",
+      "en": "INTELLIGENT BATTERY",
+      "category": "POWER",
+      "mass": 84,
+      "base": [
+        0.47,
+        -0.23,
+        -0.01
+      ],
+      "offset": [
+        1.5,
+        -0.9,
+        0.05
+      ],
+      "anchor": [
+        0,
+        0.02,
+        0.1
+      ],
+      "description": "高密度锂离子电池与库仑计、温度传感器和电池管理板封装在一起，为机身和镜头供电。",
+      "specs": [
+        [
+          "容量",
+          "16.2 Wh"
+        ],
+        [
+          "电压",
+          "7.2 V"
+        ],
+        [
+          "循环寿命",
+          "800 次"
+        ],
+        [
+          "管理",
+          "双温度 / 库仑计"
+        ]
+      ],
+      "components": [
+        "电芯组",
+        "BMS 保护板",
+        "温度探头",
+        "铝合金外壳"
+      ],
+      "insight": "电池仓与手柄共用外侧承力壁，电芯之间留有膨胀间隙；BMS 通过独立触点向机身报告健康度。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.56,
+            0.26,
+            0.42
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.48,
+            0.02,
+            0.32
+          ],
+          "pos": [
+            0,
+            0.14,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.58,
+            0.045,
+            0.44
+          ],
+          "pos": [
+            0,
+            -0.055,
+            0
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.18,
+            0.05,
+            0.02
+          ],
+          "pos": [
+            0,
+            0,
+            0.22
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.09,
+            0.015,
+            0.06
+          ],
+          "pos": [
+            0,
+            0.155,
+            0.06
+          ],
+          "mat": "cyan"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "code": "GRIP",
+      "title": "右侧手柄 / 操作组件",
+      "en": "GRIP / CONTROL",
+      "category": "ERGONOMICS",
+      "mass": 64,
+      "base": [
+        0.69,
+        -0.02,
+        -0.01
+      ],
+      "offset": [
+        1.72,
+        0.02,
+        0.32
+      ],
+      "anchor": [
+        0.12,
+        0.1,
+        0.1
+      ],
+      "description": "手柄包覆高摩擦弹性体，内部容纳双卡槽、接口板与快门按钮，形成右手单手握持的主接触面。",
+      "specs": [
+        [
+          "卡槽",
+          "双 UHS-II SD"
+        ],
+        [
+          "接口",
+          "USB-C / HDMI / 3.5 mm"
+        ],
+        [
+          "按钮",
+          "双段快门 / 摇杆"
+        ],
+        [
+          "防护",
+          "密封胶圈"
+        ]
+      ],
+      "components": [
+        "弹性体握把",
+        "卡槽门",
+        "接口板",
+        "快门编码器"
+      ],
+      "insight": "手柄内部用竖向肋骨把握持力传到主框，外层弹性体只负责摩擦与密封，避免接口板受力。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.32,
+            0.78,
+            0.5
+          ],
+          "pos": [
+            0.08,
+            -0.02,
+            0
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.04,
+            0.7,
+            0.4
+          ],
+          "pos": [
+            -0.1,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.02,
+            0.42,
+            0.02
+          ],
+          "pos": [
+            0.245,
+            -0.06,
+            0.24
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.24,
+            0.02,
+            0.34
+          ],
+          "pos": [
+            0.08,
+            0.37,
+            0
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.045,
+          "height": 0.02,
+          "pos": [
+            0.12,
+            0.385,
+            0.12
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.02,
+            0.12,
+            0.22
+          ],
+          "pos": [
+            0.245,
+            0.08,
+            -0.04
+          ],
+          "mat": "dark"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "code": "THERMAL",
+      "title": "散热 / 接口 / 卡槽",
+      "en": "THERMAL / I-O",
+      "category": "THERMAL",
+      "mass": 46,
+      "base": [
+        -0.35,
+        -0.08,
+        -0.08
+      ],
+      "offset": [
+        -1.38,
+        -0.5,
+        0.25
+      ],
+      "anchor": [
+        -0.28,
+        0.02,
+        0.02
+      ],
+      "description": "铜质均热板、鳍片与低噪风扇构成被动/主动混合散热路径，把处理器和传感器的热量导向侧窗。",
+      "specs": [
+        [
+          "均热板",
+          "0.4 mm 铜"
+        ],
+        [
+          "风扇",
+          "22 mm 低噪涡轮"
+        ],
+        [
+          "风道",
+          "侧向排出"
+        ],
+        [
+          "温度控制",
+          "双 NTC 闭环"
+        ]
+      ],
+      "components": [
+        "铜均热板",
+        "铝鳍片组",
+        "涡轮风扇",
+        "导热垫"
+      ],
+      "insight": "风道避开卡槽与电池仓，进风从手柄侧进入、热风从机身左侧排出，减少握持区域温升。",
+      "parts": [
+        {
+          "type": "box",
+          "size": [
+            0.38,
+            0.34,
+            0.3
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "copper"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.028,
+            0.3,
+            0.26
+          ],
+          "pos": [
+            -0.12,
+            0.02,
+            0.02
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.028,
+            0.3,
+            0.26
+          ],
+          "pos": [
+            -0.04,
+            0.02,
+            0.02
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.028,
+            0.3,
+            0.26
+          ],
+          "pos": [
+            0.04,
+            0.02,
+            0.02
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.028,
+            0.3,
+            0.26
+          ],
+          "pos": [
+            0.12,
+            0.02,
+            0.02
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.12,
+          "height": 0.035,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.17
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "torus",
+          "radius": 0.095,
+          "tube": 0.008,
+          "pos": [
+            0,
+            0,
+            0.19
+          ],
+          "mat": "accent"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "code": "OPTICS",
+      "title": "镜头光学组",
+      "en": "OPTICAL CELL",
+      "category": "OPTICS",
+      "mass": 496,
+      "base": [
+        0,
+        0.02,
+        1.02
+      ],
+      "offset": [
+        0.18,
+        0.82,
+        2.15
+      ],
+      "anchor": [
+        0,
+        0.02,
+        1.18
+      ],
+      "description": "六组镜片构成的浮动对焦光学组，包含非球面与低色散镜片；光圈位于光路中段，由 11 片叶片形成圆孔。",
+      "specs": [
+        [
+          "焦段",
+          "24–70 mm"
+        ],
+        [
+          "最大光圈",
+          "F2.8"
+        ],
+        [
+          "镜片结构",
+          "16 组 20 片"
+        ],
+        [
+          "特殊镜片",
+          "4 非球面 / 2 ED"
+        ]
+      ],
+      "components": [
+        "前组非球面",
+        "低色散镜片",
+        "11 叶光圈",
+        "对焦镜组"
+      ],
+      "insight": "对焦组只移动两片轻量镜片，减少马达负载；光圈叶片在收缩时仍保持接近圆形，改善焦外光斑。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.35,
+          "height": 0.42,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.32,
+          "height": 0.03,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            -0.2
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.27,
+          "height": 0.03,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            -0.07
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.24,
+          "height": 0.03,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.08
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.2,
+          "height": 0.03,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.2
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "torus",
+          "radius": 0.245,
+          "tube": 0.012,
+          "pos": [
+            0,
+            0,
+            -0.08
+          ],
+          "mat": "cyan"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.28,
+            0.018,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.12
+          ],
+          "rot": [
+            0,
+            0,
+            0.3
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.28,
+            0.018,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.12
+          ],
+          "rot": [
+            0,
+            0,
+            1.2
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.28,
+            0.018,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.12
+          ],
+          "rot": [
+            0,
+            0,
+            2.1
+          ],
+          "mat": "black"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.28,
+            0.018,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.12
+          ],
+          "rot": [
+            0,
+            0,
+            3.0
+          ],
+          "mat": "black"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "code": "BARREL",
+      "title": "镜筒 / 变焦对焦环",
+      "en": "BARREL / CONTROL RINGS",
+      "category": "OPTICS",
+      "mass": 214,
+      "base": [
+        0,
+        0.02,
+        0.98
+      ],
+      "offset": [
+        0,
+        -0.28,
+        1.7
+      ],
+      "anchor": [
+        0,
+        0.02,
+        1.02
+      ],
+      "description": "镜筒由镁合金与工程塑料复合构成，双滚花环分别控制变焦与对焦，前端的滤镜螺纹承担附件扩展。",
+      "specs": [
+        [
+          "镜筒材质",
+          "镁合金 / 工程塑料"
+        ],
+        [
+          "滤镜口径",
+          "82 mm"
+        ],
+        [
+          "变焦环",
+          "滚花橡胶"
+        ],
+        [
+          "最近对焦",
+          "0.38 m"
+        ]
+      ],
+      "components": [
+        "外镜筒",
+        "变焦凸轮",
+        "对焦环",
+        "滤镜螺纹"
+      ],
+      "insight": "变焦环与对焦环之间设置独立阻尼环，避免单手握持时误触；前端滤镜螺纹直接固定在镁合金前框。",
+      "parts": [
+        {
+          "type": "cylinder",
+          "radius": 0.44,
+          "height": 0.56,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "mat": "dark"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.45,
+          "height": 0.12,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            -0.3
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.46,
+          "height": 0.1,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.28
+          ],
+          "mat": "rubber"
+        },
+        {
+          "type": "torus",
+          "radius": 0.45,
+          "tube": 0.016,
+          "pos": [
+            0,
+            0,
+            0.18
+          ],
+          "mat": "accent"
+        },
+        {
+          "type": "torus",
+          "radius": 0.455,
+          "tube": 0.026,
+          "pos": [
+            0,
+            0,
+            -0.37
+          ],
+          "mat": "silver"
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.42,
+          "height": 0.04,
+          "axis": "z",
+          "pos": [
+            0,
+            0,
+            0.36
+          ],
+          "mat": "glass"
+        },
+        {
+          "type": "box",
+          "size": [
+            0.16,
+            0.01,
+            0.12
+          ],
+          "pos": [
+            -0.31,
+            0.4,
+            -0.12
+          ],
+          "mat": "white"
+        }
+      ]
+    }
+  ],
+  "research": {
+    "mode": "similar-product",
+    "confidence": "medium",
+    "sources": [
+      {
+        "title": "Wikipedia - Mirrorless camera",
+        "url": "https://en.wikipedia.org/wiki/Mirrorless_camera",
+        "usedFor": "body/lens proportions and stacked internal layout"
+      },
+      {
+        "title": "Wikipedia - Sony Alpha 7 IV",
+        "url": "https://en.wikipedia.org/wiki/Sony_Alpha_7_IV",
+        "usedFor": "full-frame grip, EVF and lens-mount proportions"
+      }
+    ],
+    "assumptions": [
+      "AEROLAB V1 is an original concept; no logos, trade dress or proprietary CAD were copied.",
+      "Mass and dimensions are representative, not manufacturer specifications."
+    ]
+  },
+  "assembly": {
+    "tolerance": 0.004,
+    "internal": [
+      "02",
+      "05",
+      "06",
+      "08",
+      "09"
+    ],
+    "mates": [
+      {
+        "modules": [
+          "01",
+          "03"
+        ],
+        "reason": "shutter and lens mount seated through the front shell"
+      },
+      {
+        "modules": [
+          "01",
+          "04"
+        ],
+        "reason": "EVF base fastened to the top plate"
+      },
+      {
+        "modules": [
+          "01",
+          "07"
+        ],
+        "reason": "grip shell joined to the right frame rail"
+      },
+      {
+        "modules": [
+          "06",
+          "07"
+        ],
+        "reason": "battery seated in the grip bay behind retention rails"
+      }
+    ],
+    "review": {
+      "status": "passed",
+      "reviewedAt": "2026-11-11",
+      "notes": "Static collision check clean after declaring structural join interfaces; assembled and 50%/100% exploded views reviewed for module seams and hidden geometry."
+    }
+  }
+}
