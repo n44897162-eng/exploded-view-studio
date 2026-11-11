@@ -179,4 +179,4 @@ The folder is a self-describing skill: `SKILL.md` carries the frontmatter (`name
 
 ## License
 
-[MIT](LICENSE). Bundled third-party assets keep their own licenses — see [`assets/template/LICENSES/ASSETS.md`](assets/template/LICENSES/ASSETS.md) and [`assets/vendor/THREE-LICENSE.txt`](assets/vendor/THREE-LICENSE.txt).
+[MIT](LICENSE) for this project's own source. Bundled third-party assets keep their own licenses — see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
