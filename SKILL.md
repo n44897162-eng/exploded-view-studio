@@ -195,14 +195,14 @@ Use `references/qa-checklist.md` for exact Puppeteer checks. Headless Chrome `--
 - `references/self-review.md` — collision/interface review at 0/50/100%.
 - `references/archetypes.md` — composition patterns and theme recommendations.
 - `references/qa-checklist.md` — browser/theme/mobile/floor/collision tests.
-- `references/environment.md` — paths, junction, Chrome/Puppeteer.
+- `references/environment.md` — install, browser setup, performance budget.
 - `examples/camera/`, `examples/x450/` — scenes, previews, standalone examples.
 
 Load a reference only when its detail is needed; this file is the working summary.
 
 ## Environment
 
-- Node 24, built-in modules only; Three.js r152.2 UMD.
-- Chrome: `C:\Program Files\Google\Chrome\Application\chrome.exe`.
+- Node 20+, built-in modules only; Three.js r152.2 UMD.
+- Chrome or Edge: point Puppeteer's `executablePath` at your own install.
 - Never rewrite UTF-8 JS/docs with PowerShell `Get-Content`/`Set-Content`; use the editor or Python UTF-8.
 - Values are conceptual approximations, not CAD measurements; say so in the README.
