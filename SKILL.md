@@ -1,7 +1,16 @@
 ---
 name: exploded-view-studio
+display_name: "爆炸图工作室"
+display_name_en: Exploded View Studio
 description: Generate polished, offline Three.js exploded-view product pages from a declarative scene JSON, with product-adaptive art direction and a single-file mobile build.
-whenToUse: Use when the user asks for a 3D product teardown, exploded assembly, interactive parts diagram, or a Three.js technical product page with selection, specs, and an explode control.
+description_zh: 把一份 JSON 产品描述（模块、零件、质量、规格）渲染成可交互的 3D 产品爆炸图网页：模块选择、3D 引脚标注、参数面板、爆炸动画、轨道缩放，输出完全离线的单文件，手机和桌面均可打开。当用户要做产品拆解图、爆炸装配图、零件分解示意图、交互式部件图，或 Three.js 技术产品页时使用。
+description_en: Turn a declarative scene JSON into an interactive 3D exploded-view product page — selectable modules, 3D pins, inspector, explode control, orbit and zoom, plus a single-file offline build for mobile and desktop. Use for product teardowns, exploded assembly diagrams, interactive parts diagrams, or Three.js technical product pages.
+whenToUse: Use when the user asks for a 3D product teardown, exploded assembly, interactive parts diagram, or a Three.js technical product page with selection, specs, and an explode control. 中文场景：产品爆炸图、拆解图、分解图、部件示意图、爆炸装配动画。
+version: 1.1.0
+author: n44897162-eng
+category: 设计与可视化
+tags: [threejs, 3d, exploded-view, product-visualization, teardown, offline, json]
+visibility: public
 ---
 
 # Exploded View Studio
