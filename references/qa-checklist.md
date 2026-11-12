@@ -11,8 +11,9 @@ node --check scripts/validate-spec.mjs
 node --check scripts/scaffold.mjs
 node --check scripts/audit.mjs
 node --check scripts/check-assembly.mjs
-node scripts/validate-spec.mjs examples/camera/scene.json
-node scripts/check-assembly.mjs examples/camera/scene.json
+node scripts/validate-spec.mjs examples/x450/scene.json
+node scripts/validate-spec.mjs examples/audio/scene.json
+node scripts/check-assembly.mjs examples/audio/scene.json
 node scripts/scaffold.mjs examples/camera/scene.json ..\qa-camera
 node scripts/audit.mjs ..\qa-camera
 ```
@@ -26,7 +27,7 @@ OK    scaffolded ...\qa-camera
       10 modules · 78 parts · 1502 g
       assembly clean · research similar-product
 PASS  ...\qa-camera
-      10 modules · 78 parts · 1502 g · 145.7 KB source · 962.2 KB standalone
+      10 modules · 78 parts · 1502 g · 171.1 KB source · 987.6 KB standalone
       design atelier | research similar-product | local fonts/icons | offline standalone | no remote URLs | no debug branches
       assembly 0 unapproved | 5 internal modules | 63 internal overlaps | review passed
 ```
@@ -74,7 +75,8 @@ Capture at least:
 - **1600×1000** assembled;
 - **1600×1000** exploded (100%);
 - **1366×768** assembled;
-- **900×1000** stacked layout.
+- **390×844** mobile (and 900×1000 for a stacked check when useful).
+- Assembled, 50%, and 100% for each archetype when identity/stage changed.
 
 For a new or changed theme system, also capture each preset at 1600×1000. A contact sheet is useful: the themes should differ in mode, layout, typography, corner radius, and backdrop, not only accent color.
 
@@ -93,6 +95,16 @@ Wait for the boot overlay to be removed before screenshotting. The template remo
 - Typography actually changes: editorial pages read as a display serif, technical pages as monospace, humanist pages as a neutral sans.
 - Corner radius and layout density match the preset; a `focus` layout should visibly narrow the side rails.
 
+### Identity and stage
+
+- `document.body.dataset` also has `identity`, `stage`, `construction`, `pattern`, and `motif`.
+- The stage skin matches the object: camera `aperture`, drone `rotor`, audio `waveform`, watch `turntable`, robot `cell`, medical `scan`, generic `grid`.
+- `#stageMethod` reads `<identity label> / <stage>` (for example `OPTICAL BENCH / APERTURE`).
+- View labels are product-specific (MACRO/TOP/FRONT for camera; FLIGHT/TOP/NOSE for drone; DETAIL/TOP/REAR for audio), not hardcoded ISO/FRONT.
+- Stage signature is visible but does not overpower the product; `prefers-reduced-motion` stops its animation.
+- `atlas` puts all 8 audio modules in a 4×2 bottom filmstrip with the inspector spanning the right side; a 9–12 module atlas spec becomes a horizontally scrollable filmstrip. At ≤980 both return to the normal stacked rail.
+- Shell heights are correct: stage starts under the topbar, content ends at the status bar, no empty band on desktop.
+
 ### Assembled
 
 - Recognizable silhouette at 100% view; the product is not a pile of primitives.
@@ -101,7 +113,7 @@ Wait for the boot overlay to be removed before screenshotting. The template remo
 - At 0%, 50%, and 100% separation, no module's lowest point is below the visible floor. The floor must follow the lowest moving module, not stay fixed at the assembled min-Y.
 - At 0% and close-up angles, no shell, ring, board, or fastener visibly passes through a neighboring module. Intended contacts are surface-only.
 - Selected pin label sits over the product, not over the inspector or dock.
-- All 10 module rows are visible at 1366×768 or are clearly scrollable.
+- All modules (8–12) are visible at 1366×768 or are clearly scrollable; an 8-module atlas shows all cards without scroll, while 9–12 show a readable horizontal filmstrip.
 - System-weight summary is fully visible at 1600×1000.
 
 ### Exploded
@@ -126,18 +138,19 @@ Use `page.click` / `page.evaluate`, then inspect the DOM:
 1. Select module `09` from `#moduleList`; check the active row, inspector title, and mass share.
 2. Click a 3D pin; the same module should become active.
 3. Hover a mesh; cursor/pin state should update and return to normal.
-4. Click `#explodeBtn`; label flips to `收合装配`, `aria-pressed=true`, readout reaches 100%.
+4. Click `#explodeBtn`; label flips to the product-specific assemble action (for camera `合拢镜组`), `aria-pressed=true`, readout reaches 100%.
 5. Drag `#explodeRange`; readout and button state update.
-6. Click `TOP`, `FRONT`, `ISO`, reset; active view changes and camera settles.
+6. Click each dynamic view (`MACRO/TOP/FRONT` or product-specific labels); active view changes and camera settles.
 7. Toggle auto-orbit; confirm it turns off on manual drag and on explode.
-8. Click each module then “独立查看”; only that group remains visible, and the label becomes `退出独立`.
-9. Keyboard: arrows change module, `E` toggles explode, `R` resets, `F` focuses, `Space` toggles orbit, digits 1–0 select modules.
+8. At 50%/100%, connector lines are visible at low opacity and terminate at moving modules; at 0% they disappear.
+9. Click each module then “独立查看”; only that group remains visible, and the label becomes `退出独立`.
+10. Keyboard: arrows change module, `E` toggles explode, `R` resets, `F` focuses, `Space` toggles orbit, digits 1–0 select modules.
 
 The test build should report:
 
 ```js
-window.__STUDIO__.modules.length // 10
-window.__STUDIO__.countParts()   // 78 for camera example
+window.__STUDIO__.modules.length // 8–12, 10 for camera/x450, 8 for audio
+window.__STUDIO__.countParts()   // 78 camera, 80 x450, 48 audio
 ```
 
 No `pageerror` and no console `error` entries.
@@ -152,7 +165,7 @@ const info = window.__STUDIO__.renderer.info;
    geometries: info.memory.geometries, textures: info.memory.textures });
 ```
 
-Reference camera example: about 91 draw calls, 13k triangles, 16 textures, DPR 1 in headless.
+Reference camera example: about 91 draw calls, 13k triangles, 2 textures, DPR 1 in headless. Stage skins and connectors add no textures; connectors add one draw call.
 
 Guidelines:
 

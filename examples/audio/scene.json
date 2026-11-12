@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "brand": "AEROLAB",
+    "project": "S1",
+    "revision": "REV. 01",
+    "category": "STUDIO MONITOR / 2-WAY",
+    "kicker": "PROCEDURAL ACOUSTIC SYSTEM"
+  },
+  "product": {
+    "name": "S1",
+    "model": "S1-STUDIO",
+    "cn": "二分频监听音箱",
+    "tagline": "6.5-INCH WOOFER / 1-INCH TWEETER / 120 W",
+    "totalMass": 6930,
+    "massCode": "MS-6930",
+    "massCaption": "ACTIVE NEARFIELD / PAIR WEIGHT"
+  },
+  "camera": {
+    "fov": 34,
+    "theta": 0.56,
+    "phi": 1.12,
+    "target": [0, 0.02, 0.08],
+    "autoSpeed": 0.035,
+    "fitPadding": 1.0,
+    "minRadius": 2.8,
+    "maxRadius": 34
+  },
+  "design": {
+    "preset": "studio",
+    "layout": "atlas",
+    "density": "comfortable",
+    "corners": "round",
+    "backdrop": "plain",
+    "typography": "editorial",
+    "chrome": "minimal",
+    "pattern": "dots",
+    "colors": {
+      "accent": "#b85c38",
+      "alt": "#5f8c82"
+    }
+  },
+  "identity": {
+    "archetype": "audio",
+    "label": "LISTENING ROOM",
+    "construction": "layered",
+    "stage": "waveform",
+    "views": [
+      { "label": "DETAIL", "theta": 0.56, "phi": 1.12, "zoom": 0.98 },
+      { "label": "TOP", "theta": 0.02, "phi": 0.18, "zoom": 0.94 },
+      { "label": "REAR", "theta": 3.18, "phi": 1.18, "zoom": 0.94 }
+    ],
+    "motion": { "stagger": 0.06, "order": "layered", "connectors": true },
+    "actions": { "explode": "分层拆解", "assemble": "合拢箱体" }
+  },
+  "palette": {
+    "body": 7039565,
+    "bodyLight": 12106907,
+    "dark": 1513239,
+    "accent": 12082232,
+    "cyan": 6261890
+  },
+  "research": {
+    "mode": "similar-product",
+    "confidence": "medium",
+    "sources": [
+      {
+        "title": "Wikipedia - Loudspeaker",
+        "url": "https://en.wikipedia.org/wiki/Loudspeaker",
+        "usedFor": "driver construction, cabinet volume and crossover hierarchy"
+      },
+      {
+        "title": "Wikipedia - Studio monitor",
+        "url": "https://en.wikipedia.org/wiki/Studio_monitor",
+        "usedFor": "nearfield proportions, baffle layout and listening-room context"
+      }
+    ],
+    "assumptions": [
+      "AEROLAB S1 is an original concept study; no logos, trade dress or proprietary CAD were copied.",
+      "Mass and dimensions are representative design estimates, not manufacturer specifications."
+    ]
+  },
+  "modules": [
+    {
+      "id": "01",
+      "title": "箱体框架",
+      "en": "CABINET FRAME",
+      "mass": 3800,
+      "base": [0, 0, 0],
+      "offset": [-1.35, 0.08, -0.3],
+      "anchor": [0, 0.9, 0.2],
+      "description": "厚壁木质箱体与内部加强筋构成声学基础，抑制箱振并定义低频容积。",
+      "specs": [
+        ["结构", "25 MM MDF"],
+        ["外形", "220 × 360 × 290 MM"],
+        ["表面", "WALNUT VENEER"],
+        ["容积", "12.8 L"]
+      ],
+      "components": ["侧板", "顶底板", "前障板", "加强筋"],
+      "insight": "前障板采用倒角沉孔，让单元法兰与箱体表面齐平，减少衍射。",
+      "parts": [
+        { "type": "box", "size": [0.06, 1.8, 0.75], "pos": [-0.52, 0, 0], "mat": "body" },
+        { "type": "box", "size": [0.06, 1.8, 0.75], "pos": [0.52, 0, 0], "mat": "body" },
+        { "type": "box", "size": [1.04, 0.06, 0.75], "pos": [0, 0.87, 0], "mat": "bodyLight" },
+        { "type": "box", "size": [1.04, 0.06, 0.75], "pos": [0, -0.87, 0], "mat": "bodyLight" },
+        { "type": "box", "size": [1.04, 1.8, 0.04], "pos": [0, 0, -0.355], "mat": "dark" },
+        { "type": "box", "size": [1.04, 1.8, 0.045], "pos": [0, 0, 0.355], "mat": "bodyLight" },
+        { "type": "box", "size": [0.96, 0.035, 0.6], "pos": [0, -0.3, 0], "mat": "dark" },
+        { "type": "box", "size": [0.96, 0.035, 0.6], "pos": [0, 0.35, 0], "mat": "dark" },
+        { "type": "box", "size": [0.035, 1.7, 0.6], "pos": [0, 0, 0], "mat": "dark" }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "6.5 英寸低音单元",
+      "en": "6.5-INCH WOOFER",
+      "mass": 1150,
+      "base": [0, -0.38, 0.41],
+      "offset": [0, -0.6, 0.95],
+      "anchor": [0, 0, 0.12],
+      "description": "长冲程低音单元负责中低频，橡胶折环与铝盆组合兼顾刚性和内阻尼。",
+      "specs": [
+        ["口径", "165 MM"],
+        ["振膜", "ANODIZED ALU"],
+        ["阻抗", "8 Ω"],
+        ["频响", "42–2.4 KHz"]
+      ],
+      "components": ["铝盆", "折环", "音圈", "磁钢"],
+      "insight": "大半径折环让有效振动面积接近口径极限，同时保持线性冲程。",
+      "parts": [
+        { "type": "torus", "radius": 0.31, "tube": 0.032, "pos": [0, 0, 0.08], "mat": "black" },
+        { "type": "ring", "inner": 0.285, "outer": 0.345, "pos": [0, 0, 0.1], "mat": "accent" },
+        { "type": "cylinder", "radiusTop": 0.29, "radiusBottom": 0.08, "height": 0.19, "axis": "z", "pos": [0, 0, 0.03], "mat": "dark" },
+        { "type": "sphere", "radius": 0.085, "pos": [0, 0, 0.15], "mat": "bodyLight" },
+        { "type": "cylinder", "radius": 0.17, "height": 0.16, "axis": "z", "pos": [0, 0, -0.13], "mat": "black" },
+        { "type": "ring", "inner": 0.16, "outer": 0.2, "pos": [0, 0, 0.06], "mat": "silver" },
+        { "type": "cylinder", "radius": 0.012, "height": 0.02, "axis": "z", "pos": [0.27, 0.12, 0.1], "mat": "silver" },
+        { "type": "cylinder", "radius": 0.012, "height": 0.02, "axis": "z", "pos": [-0.27, 0.12, 0.1], "mat": "silver" },
+        { "type": "cylinder", "radius": 0.012, "height": 0.02, "axis": "z", "pos": [0.27, -0.12, 0.1], "mat": "silver" },
+        { "type": "cylinder", "radius": 0.012, "height": 0.02, "axis": "z", "pos": [-0.27, -0.12, 0.1], "mat": "silver" }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "1 英寸高音单元",
+      "en": "1-INCH TWEETER",
+      "mass": 260,
+      "base": [0, 0.55, 0.42],
+      "offset": [0.9, 1.15, 0.7],
+      "anchor": [0, 0, 0.12],
+      "description": "丝膜球顶高音负责高频细节，后腔与磁液共同控制谐振和热压缩。",
+      "specs": [
+        ["口径", "25 MM"],
+        ["球顶", "SILK DOME"],
+        ["频响", "2.4–24 KHz"],
+        ["灵敏度", "90 DB"]
+      ],
+      "components": ["丝膜球顶", "波导法兰", "钕磁", "后腔"],
+      "insight": "高音中心与低音声学中心尽量靠近，改善分频点附近的垂直指向性。",
+      "parts": [
+        { "type": "ring", "inner": 0.085, "outer": 0.16, "pos": [0, 0, 0.08], "mat": "silver" },
+        { "type": "torus", "radius": 0.12, "tube": 0.018, "pos": [0, 0, 0.09], "mat": "accent" },
+        { "type": "sphere", "radius": 0.085, "pos": [0, 0, 0.075], "mat": "bodyLight" },
+        { "type": "cylinder", "radius": 0.095, "height": 0.13, "axis": "z", "pos": [0, 0, -0.01], "mat": "black" },
+        { "type": "cylinder", "radius": 0.05, "height": 0.08, "axis": "z", "pos": [0, 0, -0.12], "mat": "dark" }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "高音波导",
+      "en": "TWEETER WAVEGUIDE",
+      "mass": 170,
+      "base": [0, 0.55, 0.47],
+      "offset": [0.7, 1.55, 1.05],
+      "anchor": [0, 0, 0.1],
+      "description": "浅号角波导控制高频扩散角，让离轴响应更平滑并降低前障板衍射。",
+      "specs": [
+        ["结构", "ABS + DAMPING"],
+        ["扩散角", "120° × 80°"],
+        ["深度", "14 MM"],
+        ["表面", "MATTE BLACK"]
+      ],
+      "components": ["号角曲面", "安装环", "吸音垫"],
+      "insight": "波导不是装饰：它把高音指向性匹配到低音在分频点附近的角度。",
+      "parts": [
+        { "type": "cylinder", "radiusTop": 0.22, "radiusBottom": 0.105, "height": 0.13, "axis": "z", "pos": [0, 0, 0], "mat": "dark" },
+        { "type": "torus", "radius": 0.205, "tube": 0.014, "pos": [0, 0, 0.05], "mat": "black" },
+        { "type": "ring", "inner": 0.17, "outer": 0.215, "pos": [0, 0, 0.055], "mat": "accent" }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "分频器",
+      "en": "CROSSOVER",
+      "mass": 220,
+      "base": [-0.16, 0.12, -0.17],
+      "offset": [-0.85, 0.55, -0.8],
+      "anchor": [0, 0, 0.02],
+      "description": "二阶分频网络匹配高低音灵敏度与相位，空芯电感避免大信号磁饱和。",
+      "specs": [
+        ["拓扑", "2-WAY 2ND ORDER"],
+        ["分频点", "2.4 KHz"],
+        ["电感", "AIR-CORE"],
+        ["板厚", "1.6 MM FR-4"]
+      ],
+      "components": ["空芯电感", "MKP 电容", "水泥电阻", "接线端子"],
+      "insight": "电感轴线彼此正交，减少两个线圈之间的串扰。",
+      "parts": [
+        { "type": "box", "size": [0.34, 0.2, 0.018], "pos": [0, 0, 0], "mat": "pcbLight" },
+        { "type": "torus", "radius": 0.065, "tube": 0.018, "pos": [-0.09, 0, 0.04], "mat": "copper" },
+        { "type": "torus", "radius": 0.05, "tube": 0.016, "pos": [0.07, 0.01, 0.04], "mat": "copper" },
+        { "type": "cylinder", "radius": 0.028, "height": 0.08, "pos": [0.1, -0.07, 0.04], "mat": "black" },
+        { "type": "cylinder", "radius": 0.025, "height": 0.07, "pos": [-0.08, -0.07, 0.04], "mat": "dark" },
+        { "type": "box", "size": [0.06, 0.04, 0.035], "pos": [0, 0.075, 0.035], "mat": "chip" }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "功放与散热",
+      "en": "AMPLIFIER / HEATSINK",
+      "mass": 760,
+      "base": [0.08, -0.28, -0.28],
+      "offset": [0, -0.3, -1.1],
+      "anchor": [0, 0, 0.1],
+      "description": "D 类功放与铝挤散热器组成有源模块，为低音单元提供 80 W 持续功率。",
+      "specs": [
+        ["功率", "80 W + 40 W"],
+        ["拓扑", "CLASS-D"],
+        ["散热", "EXTRUDED ALU"],
+        ["保护", "DC / THERMAL"]
+      ],
+      "components": ["功放板", "铝散热器", "电源滤波", "XLR 输入"],
+      "insight": "散热齿朝后倾斜，利用倒相管气流形成低速对流，降低风噪。",
+      "parts": [
+        { "type": "box", "size": [0.48, 0.35, 0.03], "pos": [0, 0, 0], "mat": "pcb" },
+        { "type": "box", "size": [0.52, 0.42, 0.06], "pos": [0, 0, -0.06], "mat": "dark" },
+        { "type": "box", "size": [0.48, 0.03, 0.14], "pos": [0, -0.24, -0.08], "mat": "silver" },
+        { "type": "box", "size": [0.2, 0.12, 0.09], "pos": [-0.12, 0.03, 0.04], "mat": "copper" },
+        { "type": "cylinder", "radius": 0.065, "height": 0.1, "pos": [0.14, 0, 0.05], "mat": "black" },
+        { "type": "ring", "inner": 0.028, "outer": 0.042, "pos": [0.21, 0.11, 0.04], "mat": "silver" }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "吸音与密封",
+      "en": "DAMPING / SEAL",
+      "mass": 330,
+      "base": [0.28, 0.18, -0.08],
+      "offset": [1.15, 0.65, -0.2],
+      "anchor": [0, 0, 0.05],
+      "description": "梯度吸音棉与密封垫抑制驻波和箱体漏气，保证低频瞬态干净。",
+      "specs": [
+        ["材料", "BASOTECT FOAM"],
+        ["厚度", "18 / 30 MM"],
+        ["背板", "BITUMEN PAD"],
+        ["密封", "EPDM GASKET"]
+      ],
+      "components": ["吸音棉", "沥青阻尼板", "单元密封圈"],
+      "insight": "吸音材料并非越多越好：过度填充会降低有效容积并钝化低频瞬态。",
+      "parts": [
+        { "type": "box", "size": [0.22, 0.9, 0.16], "pos": [0, 0.18, 0], "mat": "white" },
+        { "type": "box", "size": [0.2, 0.5, 0.12], "pos": [0, -0.38, -0.02], "mat": "white" },
+        { "type": "torus", "radius": 0.3, "tube": 0.025, "pos": [0, -0.55, 0.02], "mat": "rubber" },
+        { "type": "box", "size": [0.5, 0.06, 0.5], "pos": [0, 0.62, -0.12], "mat": "dark" }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "倒相管与接口",
+      "en": "PORT / TERMINALS",
+      "mass": 240,
+      "base": [0, -0.55, -0.22],
+      "offset": [0, -1.1, 0.3],
+      "anchor": [0, 0, -0.16],
+      "description": "后置倒相管延伸低频下潜，镀金端子与 XLR 接口完成信号接入。",
+      "specs": [
+        ["倒相管", "70 × 160 MM"],
+        ["调谐", "43 Hz"],
+        ["输入", "XLR / TRS"],
+        ["端子", "GOLD-PLATED"]
+      ],
+      "components": ["倒相管", "法兰环", "XLR 接口", "电源开关"],
+      "insight": "倒相管两端均做圆角，降低端口噪声并提高高电平下的线性度。",
+      "parts": [
+        { "type": "cylinder", "radius": 0.14, "height": 0.34, "axis": "z", "pos": [0, 0, 0], "mat": "black" },
+        { "type": "torus", "radius": 0.14, "tube": 0.026, "pos": [0, 0, 0.17], "mat": "dark" },
+        { "type": "ring", "inner": 0.1, "outer": 0.18, "pos": [0, 0, 0.185], "mat": "accent" },
+        { "type": "cylinder", "radius": 0.032, "height": 0.035, "axis": "z", "pos": [0.31, 0.92, -0.17], "mat": "silver" },
+        { "type": "cylinder", "radius": 0.025, "height": 0.03, "axis": "z", "pos": [0.22, 0.92, -0.17], "mat": "black" }
+      ]
+    }
+  ],
+  "assembly": {
+    "tolerance": 0.004,
+    "internal": ["05", "06", "07"],
+    "mates": [
+      { "modules": ["01", "02"], "reason": "woofer flange seated in the front baffle rebate" },
+      { "modules": ["01", "03"], "reason": "tweeter flange mounted to the front baffle" },
+      { "modules": ["01", "04"], "reason": "waveguide ring mounted over the tweeter rebate" },
+      { "modules": ["03", "04"], "reason": "tweeter centered inside the waveguide throat" },
+      { "modules": ["01", "08"], "reason": "port tube passes through the rear cabinet wall" }
+    ],
+    "review": {
+      "status": "passed",
+      "reviewedAt": "2026-11-12",
+      "notes": "Cabinet, driver mounting, internal modules and 0/50/100% exploded views reviewed; cross-module contacts are structural interfaces."
+    }
+  }
+}

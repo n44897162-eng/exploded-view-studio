@@ -45,6 +45,22 @@ Reference: `examples/x450/scene.json`; previews in `examples/x450/`.
 
 **Common defects.** Arms hidden under a oversized top plate, propellers intersecting the frame, a GPS mast inside the canopy, and landing gear invisible from a high three-quarter angle. Lower the camera or lengthen the gear.
 
+## Two-way studio monitor
+
+Reference: `examples/audio/scene.json`; previews in `examples/audio/`.
+
+**Silhouette.** A tall, shallow cabinet with a large woofer low and a tweeter/waveguide high on the front baffle, plus a rear port. Recognition comes from the two driver circles, the cabinet proportions, and the front/rear orientation.
+
+**Module split.** Cabinet; woofer; tweeter; waveguide; crossover; amplifier/heatsink; damping; port/terminals. Keep the drivers separate because users reason about them as replaceable acoustic assemblies.
+
+**Exploded layout.** Layer front-to-back: grille/terminal/port rearward, waveguide and tweeter forward, woofer further forward, crossover and damping inside, amplifier out the back. Keep the cabinet stable as the visual anchor.
+
+**Materials.** Warm veneer/body tones, `black` for driver cones and rubber surrounds, `silver` for baskets, `copper` for voice-coil and terminal details, `pcb`/`chip` for the crossover, `accent` for a thin surround ring. The `waveform` stage should stay behind the cabinet, never on top of the drivers.
+
+**Common defects.** A floating damping slab, a port intersecting the woofer, an oversized grille, and a speaker that reads as a generic box because the drivers are too small or too flat.
+
+**Layout.** Use `atlas`: a bottom 4×2 filmstrip mirrors a listening-room rack and keeps the frontal cabinet large. Use `focus` only for a single-driver macro study.
+
 ## Generic product
 
 When no archetype fits, use this sequence:
@@ -75,6 +91,20 @@ Use a neutral fictional brand and model. Avoid real trademarks, logos, and copie
 ## Camera view
 
 For most products, start with `theta ≈ 0.7–0.9`, `phi ≈ 1.0–1.2`, and `fitPadding ≈ 1.10–1.16`. A camera or lens benefits from a slightly lower `phi` (more front-on); a quadrotor benefits from a slightly higher camera (more top-down) so the X frame reads. Confirm at both 1600×1000 and 1366×768 before finalizing.
+
+## Construction grammar by archetype
+
+| Archetype | Stage | Construction | Views | Layout | Why |
+|---|---|---|---|---|---|
+| camera | aperture | optical | MACRO/TOP/FRONT | focus | the lens is the subject; the optical axis is the story |
+| quadrotor | rotor | radial | FLIGHT/TOP/NOSE | panorama | the X silhouette and four rotor discs need width |
+| audio | waveform | layered | DETAIL/TOP/REAR | atlas | a frontal cabinet benefits from a bottom rack strip |
+| watch | turntable | circular | DETAIL/TOP/SIDE | focus | the case is concentric; a turntable reads as craft |
+| robot | cell | kinematic | HERO/TOP/DETAIL | workbench | joints read as a chain; a cell invokes a work envelope |
+| medical | scan | scan | SCAN/TOP/DETAIL | panorama | scan geometry and clinical spacing |
+| generic | grid | linear | ISO/TOP/FRONT | workbench | neutral technical baseline |
+
+These are defaults, not laws. A field camera can use `terrain`; a rugged drone can use `terrain` or `signal`. Choose the **construction** first, then the palette.
 
 ## Art direction by archetype
 

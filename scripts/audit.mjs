@@ -52,6 +52,10 @@ if (!failures.length) {
   if (!/@font-face/.test(css) || !/url\(["']?\.\/fonts\//.test(css)) failures.push('local @font-face bundle not found in styles.css');
   if (!/class=["']svg-sprite["']/.test(html) || !/<symbol\s+id=["']i-/.test(html)) failures.push('inline icon sprite not found in index.html');
   if (!/stageMotifUse/.test(html) || !/DESIGN\.motif/.test(engine)) failures.push('theme motif hook not wired through engine.js');
+  if (!/class=["']stage-signature["']/.test(html) || !/data-stage/.test(css)) failures.push('product stage-signature layer not wired');
+  if (!/stageMethod/.test(html) || !/dataset\.stage/.test(engine)) failures.push('identity/stage method hook not wired');
+  if (!/view-label/.test(html) || !/view-label/.test(engine)) failures.push('dynamic view labels not wired');
+  if (!/connectorPositions/.test(engine) || !/connectorLines/.test(engine)) failures.push('exploded-path connector layer not wired');
   const uiLabels = ['全部拆解', '收合装配', '下一模块', '聚焦查看'];
   for (const label of uiLabels) if (!`${html}${engine}`.includes(label)) failures.push(`missing UI label ${label}`);
   if (/[\uFFFD\uE000-\uF8FF]/.test(`${html}${engine}${design}`)) failures.push('replacement/private-use glyph corruption in template text');
@@ -98,9 +102,13 @@ if (!failures.length) {
       const standaloneKB = (fs.statSync(path.join(target, 'standalone.html')).size / 1024).toFixed(1);
       const theme = spec.design?.preset || 'auto';
       const research = spec.research?.mode || 'missing';
+      const identity = spec.identity?.archetype || 'inferred';
+      const stage = spec.identity?.stage || 'auto';
+      const views = Array.isArray(spec.identity?.views) ? spec.identity.views.map(view => view.label).join('/') : 'auto';
       console.log(`PASS  ${target}`);
       console.log(`      ${result.modules} modules | ${parts} parts | ${result.mass} g | ${(size / 1024).toFixed(1)} KB source | ${standaloneKB} KB standalone`);
-      console.log(`      design ${theme} | research ${research} | local fonts/icons | offline standalone | no remote URLs | no debug branches`);
+      console.log(`      design ${theme} | identity ${identity}/${stage} | views ${views} | research ${research}`);
+      console.log(`      local fonts/icons | stage grammar | connectors | offline standalone | no remote URLs | no debug branches`);
       console.log(`      assembly ${collision.unapproved.length} unapproved | ${collision.internalModules} internal modules | ${collision.internalHits} internal overlaps | review ${collision.review.status}`);
     }
   }

@@ -373,7 +373,7 @@
   };
   THEMES.studio = {
     ...THEMES.atelier,
-    label: 'Studio', motif: 'audio-lines', mode: 'light', layout: 'focus',
+    label: 'Studio', motif: 'audio-lines', mode: 'light', layout: 'atlas',
     density: 'airy', corners: 'round', backdrop: 'plain',
     typography: 'editorial', chrome: 'minimal',
     copy: {
@@ -436,9 +436,9 @@
 
   const INFERENCE = [
     { preset: 'atelier', pattern: /(camera|lens|optic|photo|cinema|optical|相机|镜头|光学|影像|摄影)/i },
-    { preset: 'pulse', pattern: /(medical|clinical|health|wearable|monitor|医疗|健康|临床|监测|可穿戴)/i },
+    { preset: 'pulse', pattern: /(medical|clinical|health|wearable|patient monitor|vital signs|医疗|健康|临床|监测|可穿戴)/i },
     { preset: 'terrain', pattern: /(outdoor|camp|trail|expedition|backpack|tent|boot|tactical|户外|露营|登山|背包|越野|战术)/i },
-    { preset: 'studio', pattern: /(audio|speaker|headphone|furniture|chair|lamp|音响|耳机|家具|灯具|家居)/i },
+    { preset: 'studio', pattern: /(audio|speaker|headphone|studio monitor|furniture|chair|lamp|音响|耳机|家具|灯具|家居)/i },
     { preset: 'nocturne', pattern: /(watch|luxury|jewel|perfume|手表|奢华|珠宝|香水)/i },
     { preset: 'signal', pattern: /(drone|sport|bike|game|field|无人机|运动|竞速)/i },
     { preset: 'foundry', pattern: /(tool|industrial|robot|machine|hardware|工具|工业|机械|机器人)/i },

@@ -38,6 +38,19 @@
     "typography": "technical",
     "chrome": "technical"
   },
+  "identity": {
+    "archetype": "quadrotor",
+    "label": "FLIGHT DECK",
+    "construction": "radial",
+    "stage": "rotor",
+    "views": [
+      { "label": "FLIGHT", "theta": 0.7, "phi": 1.12, "zoom": 0.98 },
+      { "label": "TOP", "theta": 0.02, "phi": 0.16, "zoom": 0.95 },
+      { "label": "NOSE", "theta": 0.04, "phi": 1.4, "zoom": 0.9 }
+    ],
+    "motion": { "stagger": 0.045, "order": "radial", "connectors": true },
+    "actions": { "explode": "展开机体", "assemble": "收拢机体" }
+  },
   "palette": {
     "body": 3292486,
     "bodyLight": 10003890,

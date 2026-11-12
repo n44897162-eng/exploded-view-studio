@@ -10,6 +10,7 @@
   "product": {},
   "camera": {},
   "design": {},
+  "identity": {},
   "research": {},
   "assembly": {},
   "palette": {},
@@ -55,6 +56,42 @@ Used in the top bar and stage copy. All fields are optional strings.
 | maxRadius | 34 | manual zoom-out limit before auto-fit overrides |
 
 The engine computes both assembled and exploded bounding spheres, fits the tighter of vertical/horizontal FOV, and scales up for the exploded state. `fitPadding` is the main framing control: 1.10–1.16 is a good starting point for dense products. Lower values make the hero larger but risk clipping at narrow aspect ratios.
+
+### identity
+
+Optional construction grammar. It controls stage atmosphere, camera presets, stagger order, connector paths, and action copy. Without it, the engine infers from product keywords and the design preset.
+
+```json
+"identity": {
+  "archetype": "camera",
+  "label": "OPTICAL BENCH",
+  "stage": "aperture",
+  "construction": "optical",
+  "views": [
+    { "label": "MACRO", "theta": 0.64, "phi": 1.08, "zoom": 0.82 },
+    { "label": "TOP", "theta": 0.02, "phi": 0.16, "zoom": 0.96 },
+    { "label": "FRONT", "theta": 0, "phi": 1.32, "zoom": 0.9 }
+  ],
+  "motion": { "stagger": 0.055, "order": "optical", "connectors": true },
+  "actions": { "explode": "拆解光路", "assemble": "合拢镜组" }
+}
+```
+
+| Field | Values | Notes |
+|---|---|---|
+| archetype | camera, quadrotor, audio, watch, robot, medical, generic | picks defaults |
+| label | string | shown in `stage-method` |
+| stage | aperture, rotor, waveform, turntable, cell, scan, grid | CSS stage skin |
+| construction | optical, radial, layered, circular, kinematic, scan, linear | explode rhythm |
+| views | 1–3 `{label,theta,phi,zoom,target?}` | merged by array index into ISO/TOP/FRONT slots; `zoom` 0.42–1.6; `target` absolute vec3 |
+| motion.stagger | 0–0.2 seconds | total stagger window capped at 0.58 s |
+| motion.order | same enum as construction | module ranking |
+| motion.connectors | boolean | one line segment per module |
+| actions.explode/assemble | non-empty strings | button labels |
+
+The `views` array is positional: index 0 replaces ISO, index 1 TOP, index 2 FRONT. Read the generated labels in the stage controls.
+
+Construction order: `optical` front-to-back (+Z), `radial` around the hub, `layered` high-to-low, `circular` angular, `scan` bottom-up, `kinematic` base-to-tip, `linear` by module index.
 
 ### design
 

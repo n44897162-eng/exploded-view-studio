@@ -72,6 +72,8 @@ fs.writeFileSync(
   `- \`LICENSES/\` — OFL/ISC licenses and asset provenance for offline distribution.\n` +
   `- \`vendor/three.min.js\` — local Three.js r152.2.\n\n` +
   `Art direction: **${spec.design?.preset || 'auto (inferred from product)'}**.
+Construction: **${spec.identity?.archetype || 'auto'} / ${spec.identity?.stage || 'auto'} / ${spec.identity?.construction || 'auto'}**.
+Views: **${Array.isArray(spec.identity?.views) ? spec.identity.views.map(view => view.label).join(' / ') : 'auto'}**.
 Research mode: **${spec.research?.mode || 'not recorded'}**.
 
 Assembly gate: **PASS** (${assembly.unapproved.length} unapproved intersections, ${assembly.internalModules} internal modules, review ${assembly.review.status}).
@@ -85,4 +87,5 @@ const bundled = bundleProject(outDir);
 console.log(`OK    scaffolded ${outDir}`);
 console.log(`      ${result.modules} modules · ${result.parts} parts · ${result.mass} g`);
 console.log(`      assembly clean · research ${spec.research?.mode || 'not recorded'}`);
+console.log(`      identity ${spec.identity?.archetype || 'auto'}/${spec.identity?.stage || 'auto'} · views ${Array.isArray(spec.identity?.views) ? spec.identity.views.map(view => view.label).join('/') : 'auto'}`);
 console.log(`      standalone.html  ${(bundled.bytes / 1024).toFixed(1)} KB  (share this file)`);

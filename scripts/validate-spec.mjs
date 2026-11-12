@@ -8,7 +8,7 @@ const MATERIALS = new Set(['body', 'bodyLight', 'dark', 'black', 'prop', 'silver
 const DESIGN_PRESETS = new Set(['auto', 'aerolab', 'foundry', 'atelier', 'pulse', 'nocturne', 'signal', 'terrain', 'studio']);
 const DESIGN_ENUMS = {
   mode: new Set(['dark', 'light']),
-  layout: new Set(['workbench', 'focus', 'panorama']),
+  layout: new Set(['workbench', 'focus', 'panorama', 'atlas']),
   density: new Set(['compact', 'comfortable', 'airy']),
   corners: new Set(['square', 'soft', 'round']),
   backdrop: new Set(['rings', 'grid', 'horizon', 'plain']),
@@ -19,6 +19,10 @@ const DESIGN_ENUMS = {
 };
 const RESEARCH_MODES = new Set(['public-reference', 'similar-product', 'concept']);
 const REVIEW_STATES = new Set(['pending', 'passed']);
+const ARCHETYPES = new Set(['camera', 'quadrotor', 'audio', 'watch', 'robot', 'medical', 'generic']);
+const STAGE_KINDS = new Set(['aperture', 'rotor', 'waveform', 'turntable', 'cell', 'scan', 'grid']);
+const CONSTRUCTIONS = new Set(['optical', 'radial', 'layered', 'circular', 'kinematic', 'scan', 'linear']);
+const MOTION_ORDERS = new Set(['optical', 'radial', 'layered', 'circular', 'kinematic', 'scan', 'linear']);
 
 export function validateSpec(spec, label = 'spec') {
   const errors = [];
@@ -65,6 +69,50 @@ export function validateSpec(spec, label = 'spec') {
       }
       if (design.copy !== undefined && (!design.copy || typeof design.copy !== 'object' || Array.isArray(design.copy))) {
         fail('design.copy must be an object');
+      }
+    }
+  }
+
+  if (spec.identity !== undefined) {
+    const identity = spec.identity;
+    if (!identity || typeof identity !== 'object' || Array.isArray(identity)) fail('identity must be an object');
+    else {
+      if (!ARCHETYPES.has(identity.archetype)) fail(`identity.archetype must be one of: ${[...ARCHETYPES].join(', ')}`);
+      if (identity.stage !== undefined && !STAGE_KINDS.has(identity.stage)) fail(`identity.stage must be one of: ${[...STAGE_KINDS].join(', ')}`);
+      if (identity.construction !== undefined && !CONSTRUCTIONS.has(identity.construction)) fail(`identity.construction must be one of: ${[...CONSTRUCTIONS].join(', ')}`);
+      if (identity.label !== undefined && (typeof identity.label !== 'string' || !identity.label.trim())) fail('identity.label must be a non-empty string');
+      if (identity.views !== undefined) {
+        if (!Array.isArray(identity.views) || identity.views.length === 0 || identity.views.length > 3) {
+          fail('identity.views must contain 1–3 camera views');
+        } else {
+          identity.views.forEach((view, index) => {
+            const where = `identity.views[${index}]`;
+            if (!view || typeof view !== 'object' || Array.isArray(view)) { fail(`${where} must be an object`); return; }
+            if (view.label !== undefined && (typeof view.label !== 'string' || !view.label.trim())) fail(`${where}.label must be a non-empty string`);
+            for (const axis of ['theta', 'phi']) {
+              if (view[axis] !== undefined && !Number.isFinite(Number(view[axis]))) fail(`${where}.${axis} must be a number`);
+            }
+            if (view.phi !== undefined && (Number(view.phi) < 0.04 || Number(view.phi) > 1.55)) fail(`${where}.phi must be between 0.04 and 1.55`);
+            if (view.zoom !== undefined && !(Number(view.zoom) >= 0.42 && Number(view.zoom) <= 1.6)) fail(`${where}.zoom must be between 0.42 and 1.6`);
+            if (view.target !== undefined && !isVec3(view.target)) fail(`${where}.target must be a vec3`);
+          });
+        }
+      }
+      if (identity.motion !== undefined) {
+        if (!identity.motion || typeof identity.motion !== 'object' || Array.isArray(identity.motion)) fail('identity.motion must be an object');
+        else {
+          if (identity.motion.stagger !== undefined && !(Number(identity.motion.stagger) >= 0 && Number(identity.motion.stagger) <= 0.2)) fail('identity.motion.stagger must be between 0 and 0.2');
+          if (identity.motion.order !== undefined && !MOTION_ORDERS.has(identity.motion.order)) fail(`identity.motion.order must be one of: ${[...MOTION_ORDERS].join(', ')}`);
+          if (identity.motion.connectors !== undefined && typeof identity.motion.connectors !== 'boolean') fail('identity.motion.connectors must be a boolean');
+        }
+      }
+      if (identity.actions !== undefined) {
+        if (!identity.actions || typeof identity.actions !== 'object' || Array.isArray(identity.actions)) fail('identity.actions must be an object');
+        else {
+          for (const key of ['explode', 'assemble']) {
+            if (identity.actions[key] !== undefined && (typeof identity.actions[key] !== 'string' || !identity.actions[key].trim())) fail(`identity.actions.${key} must be a non-empty string`);
+          }
+        }
       }
     }
   }
@@ -196,7 +244,7 @@ export function validateSpec(spec, label = 'spec') {
   if (Number.isFinite(expected) && Math.abs(mass - expected) > 0.5) {
     fail(`mass mismatch: modules sum to ${mass} g but product.totalMass is ${expected} g`);
   }
-  if (modules.length && modules.length !== 10) warnings.push(`this spec has ${modules.length} modules; the reference UI is tuned for 10`);
+  if (modules.length && (modules.length < 8 || modules.length > 12)) warnings.push(`this spec has ${modules.length} modules; 8-12 is the recommended range for the reference UI`);
   return { errors, warnings, modules: modules.length, parts: partCount, mass };
 }
 

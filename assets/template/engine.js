@@ -22,6 +22,145 @@
   const DESIGN = window.STUDIO_DESIGN
     ? window.STUDIO_DESIGN.apply(spec)
     : { preset: 'aerolab', copy: {}, colors: {}, scene: {} };
+
+  /* ---------------------------------------------------- product identity */
+  const ARCHETYPE_DEFAULTS = {
+    camera: {
+      label: 'OPTICAL STAGE',
+      construction: 'optical',
+      stage: 'aperture',
+      views: [
+        { label: 'MACRO', theta: 0.68, phi: 1.12, zoom: 0.76 },
+        { label: 'TOP', theta: 0.02, phi: 0.2, zoom: 0.96 },
+        { label: 'FRONT', theta: 0, phi: 1.34, zoom: 0.88 }
+      ],
+      motion: { stagger: 0.055, order: 'optical', connectors: true },
+      actions: { explode: '全部拆解', assemble: '收合装配' }
+    },
+    quadrotor: {
+      label: 'FLIGHT DECK',
+      construction: 'radial',
+      stage: 'rotor',
+      views: [
+        { label: 'FLIGHT', theta: 0.82, phi: 0.92, zoom: 1.18 },
+        { label: 'TOP', theta: 0.02, phi: 0.18, zoom: 1.08 },
+        { label: 'NOSE', theta: 0, phi: 1.34, zoom: 1.02 }
+      ],
+      motion: { stagger: 0.05, order: 'radial', connectors: true },
+      actions: { explode: '全部拆解', assemble: '收合装配' }
+    },
+    audio: {
+      label: 'LISTENING ROOM',
+      construction: 'layered',
+      stage: 'waveform',
+      views: [
+        { label: 'LISTEN', theta: 0.55, phi: 1.08, zoom: 0.94 },
+        { label: 'TOP', theta: 0.02, phi: 0.2, zoom: 0.94 },
+        { label: 'FRONT', theta: 0, phi: 1.3, zoom: 0.9 }
+      ],
+      motion: { stagger: 0.065, order: 'layered', connectors: true },
+      actions: { explode: '展开结构', assemble: '收拢箱体' }
+    },
+    watch: {
+      label: 'MICRO MECHANISM',
+      construction: 'circular',
+      stage: 'turntable',
+      views: [
+        { label: 'MACRO', theta: 0.36, phi: 1.15, zoom: 0.72 },
+        { label: 'DIAL', theta: 0.02, phi: 0.08, zoom: 0.82 },
+        { label: 'PROFILE', theta: 0, phi: 1.36, zoom: 0.8 }
+      ],
+      motion: { stagger: 0.06, order: 'circular', connectors: true },
+      actions: { explode: '展开机芯', assemble: '合盖' }
+    },
+    robot: {
+      label: 'WORK CELL',
+      construction: 'kinematic',
+      stage: 'cell',
+      views: [
+        { label: 'CELL', theta: 0.86, phi: 1.06, zoom: 1.08 },
+        { label: 'TOP', theta: 0.02, phi: 0.2, zoom: 1.0 },
+        { label: 'TOOL', theta: 0.42, phi: 1.24, zoom: 0.72 }
+      ],
+      motion: { stagger: 0.045, order: 'kinematic', connectors: true },
+      actions: { explode: '展开机构', assemble: '复位' }
+    },
+    medical: {
+      label: 'SCAN BAY',
+      construction: 'scan',
+      stage: 'scan',
+      views: [
+        { label: 'SCAN', theta: 0.02, phi: 1.34, zoom: 0.94 },
+        { label: 'TOP', theta: 0.02, phi: 0.16, zoom: 0.96 },
+        { label: 'SIDE', theta: 1.18, phi: 1.18, zoom: 1.0 }
+      ],
+      motion: { stagger: 0.05, order: 'scan', connectors: true },
+      actions: { explode: '分层检查', assemble: '合并扫描' }
+    },
+    generic: {
+      label: 'ASSEMBLY STAGE',
+      construction: 'linear',
+      stage: 'grid',
+      views: [
+        { label: 'ISO', theta: 0.72, phi: 1.12, zoom: 1.0 },
+        { label: 'TOP', theta: 0.02, phi: 0.2, zoom: 0.96 },
+        { label: 'FRONT', theta: 0, phi: 1.34, zoom: 0.92 }
+      ],
+      motion: { stagger: 0.045, order: 'linear', connectors: true },
+      actions: { explode: '全部拆解', assemble: '收合装配' }
+    }
+  };
+
+  const PRESET_ARCHETYPE = {
+    atelier: 'camera', signal: 'quadrotor', studio: 'audio', nocturne: 'watch',
+    pulse: 'medical', foundry: 'robot', terrain: 'generic', aerolab: 'generic'
+  };
+
+  function detectArchetype() {
+    const asked = spec.identity && spec.identity.archetype;
+    if (asked && ARCHETYPE_DEFAULTS[asked]) return asked;
+    const text = [product.name, product.cn, product.tagline, meta.category, meta.kicker].filter(Boolean).join(' ');
+    const rules = [
+      ['camera', /(camera|lens|optic|photo|cinema|optical|相机|镜头|光学|影像|摄影)/i],
+      ['audio', /(audio|speaker|woofer|tweeter|headphone|studio monitor|monitor speaker|音响|音箱|耳机|家具|灯具|家居)/i],
+      ['medical', /(medical|clinical|health|wearable|patient monitor|vital signs|医疗|健康|临床|监测|可穿戴)/i],
+      ['watch', /(watch|luxury|jewel|perfume|手表|奢华|珠宝|香水)/i],
+      ['quadrotor', /(drone|quadrotor|sport|bike|game|field|无人机|运动|竞速)/i],
+      ['robot', /(robot|tool|industrial|machine|hardware|机器人|工具|工业|机械)/i]
+    ];
+    for (const [archetype, pattern] of rules) if (pattern.test(text)) return archetype;
+    return PRESET_ARCHETYPE[DESIGN.preset] || 'generic';
+  }
+
+  function resolveIdentity() {
+    const archetype = detectArchetype();
+    const defaults = ARCHETYPE_DEFAULTS[archetype] || ARCHETYPE_DEFAULTS.generic;
+    const asked = spec.identity && typeof spec.identity === 'object' ? spec.identity : {};
+    const views = defaults.views.map((view, index) => {
+      const override = Array.isArray(asked.views) ? asked.views[index] || {} : {};
+      return {
+        label: String(override.label || view.label).toUpperCase(),
+        theta: Number.isFinite(Number(override.theta)) ? Number(override.theta) : view.theta,
+        phi: Number.isFinite(Number(override.phi)) ? Number(override.phi) : view.phi,
+        zoom: Number.isFinite(Number(override.zoom)) ? Number(override.zoom) : view.zoom,
+        target: Array.isArray(override.target) ? override.target.slice(0, 3) : null
+      };
+    });
+    return {
+      archetype,
+      label: String(asked.label || defaults.label).toUpperCase(),
+      construction: String(asked.construction || defaults.construction),
+      stage: String(asked.stage || defaults.stage),
+      views,
+      motion: { ...defaults.motion, ...(asked.motion || {}) },
+      actions: { ...defaults.actions, ...(asked.actions || {}) }
+    };
+  }
+
+  const IDENTITY = resolveIdentity();
+  document.body.dataset.stage = IDENTITY.stage;
+  document.body.dataset.construction = IDENTITY.construction;
+  document.body.dataset.identity = IDENTITY.archetype;
   const modulesData = spec.modules.slice();
   const totalMass = Number(product.totalMass) || modulesData.reduce((sum, m) => sum + (Number(m.mass) || 0), 0);
   const canvas = $('#studioCanvas');
@@ -32,6 +171,7 @@
 
   /* ---------------------------------------------------------------- copy */
   const setText = (sel, value) => { const el = $(sel); if (el && value != null) el.textContent = value; };
+  setText('#stageMethod', `${IDENTITY.label} / ${IDENTITY.stage.toUpperCase()}`);
   setText('#brandName', meta.brand || 'AEROLAB');
   setText('#brandMicro', DESIGN.copy.micro || 'PROCEDURAL ASSEMBLY ENGINE');
   setText('#projectName', `${product.name || 'PRODUCT'} / ${product.model || '001'}`);
@@ -396,6 +536,65 @@
     module.baseMinY = reusableBox.isEmpty() ? assembledFloorY : reusableBox.min.y;
   });
 
+  /* Exploded-path connectors: a single dynamic LineSegments buffer, no adds. */
+  const connectorPositions = new Float32Array(modules.length * 6);
+  modules.forEach((module, index) => {
+    const base = module.base;
+    connectorPositions[index * 6] = base.x;
+    connectorPositions[index * 6 + 1] = base.y;
+    connectorPositions[index * 6 + 2] = base.z;
+    connectorPositions[index * 6 + 3] = base.x;
+    connectorPositions[index * 6 + 4] = base.y;
+    connectorPositions[index * 6 + 5] = base.z;
+  });
+  const connectorGeometry = new THREE.BufferGeometry();
+  connectorGeometry.setAttribute('position', new THREE.BufferAttribute(connectorPositions, 3));
+  const connectorMaterial = new THREE.LineBasicMaterial({
+    color: accentColor,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    toneMapped: false
+  });
+  const connectorLines = new THREE.LineSegments(connectorGeometry, connectorMaterial);
+  connectorLines.frustumCulled = false;
+  connectorLines.visible = false;
+  world.add(connectorLines);
+
+  /*
+   * Construction grammar: each product gets a different order in which its
+   * modules leave the assembly. The delay is normalised so the whole sequence
+   * lands at 100% explode instead of drifting forever.
+   */
+  function applyChoreography() {
+    const order = IDENTITY.motion.order || 'linear';
+    const ranked = modules.slice();
+    if (order === 'optical') {
+      ranked.sort((a, b) => b.offset.z - a.offset.z || a.index - b.index);
+    } else if (order === 'radial') {
+      ranked.sort((a, b) => {
+        const angleA = Math.atan2(a.base.z, a.base.x);
+        const angleB = Math.atan2(b.base.z, b.base.x);
+        return angleA - angleB || a.index - b.index;
+      });
+    } else if (order === 'layered') {
+      ranked.sort((a, b) => b.base.y - a.base.y || a.index - b.index);
+    } else if (order === 'circular') {
+      ranked.sort((a, b) => Math.atan2(a.base.z, a.base.x) - Math.atan2(b.base.z, b.base.x) || a.index - b.index);
+    } else if (order === 'scan') {
+      ranked.sort((a, b) => a.base.y - b.base.y || a.index - b.index);
+    } else if (order === 'kinematic') {
+      ranked.sort((a, b) => a.base.y - b.base.y || a.index - b.index);
+    }
+    const stagger = clamp(Number(IDENTITY.motion.stagger) || 0, 0, 0.2);
+    const span = Math.min(0.58, stagger * Math.max(0, ranked.length - 1));
+    ranked.forEach((module, rank) => {
+      module.orderRank = rank;
+      module.delay = ranked.length > 1 ? (rank / (ranked.length - 1)) * span : 0;
+    });
+  }
+  applyChoreography();
+
   /* --------------------------------------------------------------- layout */
   const fitPadding = Number(spec.camera?.fitPadding) || 1.08;
   const fit = { radius: 7, explodedRadius: 10, ratio: 1.35, center: new THREE.Vector3() };
@@ -491,11 +690,23 @@
     }
   }
 
-  const views = {
-    iso: { theta: rig.theta, phi: rig.phi, active: true },
-    top: { theta: 0.02, phi: 0.22 },
-    front: { theta: 0, phi: 1.34 }
+  const views = {};
+  const baseViews = {
+    iso: { theta: rig.theta, phi: rig.phi, zoom: 0.98, label: 'ISO' },
+    top: { theta: 0.02, phi: 0.2, zoom: 0.96, label: 'TOP' },
+    front: { theta: 0, phi: 1.34, zoom: 0.92, label: 'FRONT' }
   };
+  IDENTITY.views.forEach((view, index) => {
+    const key = ['iso', 'top', 'front'][index];
+    if (!key) return;
+    views[key] = {
+      ...baseViews[key],
+      ...view,
+      label: String(view.label || baseViews[key].label).toUpperCase()
+    };
+    const label = $(`.view-btn[data-view="${key}"] .view-label`);
+    if (label) label.textContent = views[key].label;
+  });
   let currentView = 'iso';
   let userAdjusted = false;
   let selectedId = modules[0]?.data.id || '01';
@@ -541,6 +752,14 @@
       moduleList.appendChild(row);
       rowById.set(data.id, row);
     });
+    if (DESIGN.layout === 'atlas') {
+      if (modules.length <= 8) {
+        moduleList.style.gridTemplateColumns = `repeat(${Math.max(1, Math.ceil(modules.length / 2))}, minmax(0, 1fr))`;
+      } else {
+        moduleList.classList.add('is-filmstrip');
+        moduleList.style.gridTemplateColumns = `repeat(${modules.length}, 174px)`;
+      }
+    }
   }
 
   function buildPins() {
@@ -652,7 +871,7 @@
     const button = $('#explodeBtn');
     button.classList.toggle('is-active', explodeTarget > 0.5);
     button.setAttribute('aria-pressed', String(explodeTarget > 0.5));
-    setText('#explodeLabel', explodeTarget > 0.5 ? '收合装配' : '全部拆解');
+    setText('#explodeLabel', explodeTarget > 0.5 ? IDENTITY.actions.assemble : IDENTITY.actions.explode);
     const range = $('#explodeRange');
     range.value = percent;
     range.style.setProperty('--fill', `${percent}%`);
@@ -690,8 +909,13 @@
     if (!view) return;
     rig.goalTheta = view.theta;
     rig.goalPhi = view.phi;
-    rig.goalRadius = fit.radius * 0.98;
-    rig.goalTarget.copy(fit.center);
+    const zoom = clamp(Number(view.zoom) || 0.98, 0.42, 1.6);
+    rig.goalRadius = clamp(fit.radius * zoom, rig.minRadius, rig.maxRadius);
+    if (Array.isArray(view.target) && view.target.length === 3) {
+      rig.goalTarget.fromArray(view.target);
+    } else {
+      rig.goalTarget.copy(fit.center);
+    }
     userAdjusted = true;
     currentView = name;
     if (markActive) {
@@ -924,10 +1148,21 @@
     explodeCurrent = damp(explodeCurrent, explodeTarget, 3.4, dt);
     let floorY = assembledFloorY;
     modules.forEach(module => {
-      module.state = damp(module.state, explodeCurrent, 4.4 + (module.index % 3) * 0.35, dt);
+      const delay = clamp(Number(module.delay) || 0, 0, 0.75);
+      const target = explodeCurrent < 0.001
+        ? 0
+        : clamp((explodeCurrent - delay) / Math.max(0.001, 1 - delay), 0, 1);
+      module.state = damp(module.state, target, 4.4 + (module.index % 3) * 0.35, dt);
       module.group.position.copy(module.base).addScaledVector(module.offset, module.state);
       floorY = Math.min(floorY, module.baseMinY + module.offset.y * module.state);
+      connectorPositions[module.index * 6 + 3] = module.group.position.x;
+      connectorPositions[module.index * 6 + 4] = module.group.position.y;
+      connectorPositions[module.index * 6 + 5] = module.group.position.z;
     });
+    connectorGeometry.attributes.position.needsUpdate = true;
+    const connectorOpacity = IDENTITY.motion.connectors === false ? 0 : Math.min(0.34, explodeCurrent * 0.4);
+    connectorMaterial.opacity = connectorOpacity;
+    connectorLines.visible = connectorOpacity > 0.008;
     floorGroup.position.y = floorY - 0.12;
     rig.update(dt);
     updatePins();
@@ -992,8 +1227,8 @@
   }, 160);
 
   window.__STUDIO__ = {
-    spec, modules, selectModule, setExplodeTarget, resetAll, setView,
-    rig, fit, camera, scene, renderer, applyFit, countParts, floorGroup
+    spec, identity: IDENTITY, modules, selectModule, setExplodeTarget, resetAll, setView,
+    rig, fit, camera, scene, renderer, applyFit, countParts, floorGroup, connectorLines
   };
 
   lastFrame = performance.now();

@@ -97,6 +97,7 @@
     <section class="stage" id="stage">
       <canvas id="studioCanvas" aria-label="三维产品拆解视图"></canvas>
       <div class="stage-grid" aria-hidden="true"></div>
+      <div class="stage-signature" id="stageSignature" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="stage-vignette" aria-hidden="true"></div>
       <div class="corner corner-tl"></div>
       <div class="corner corner-tr"></div>
@@ -113,11 +114,12 @@
         <svg class="stage-emblem-icon"><use id="stageMotifUse" href="#i-orbit"></use></svg>
         <span id="stageThemeName">AEROLAB</span>
       </div>
+      <div class="stage-method" id="stageMethod">GENERIC / GRID</div>
 
       <div class="view-switch" role="group" aria-label="视角">
-        <button class="view-btn is-active" data-view="iso"><svg class="icon"><use href="#i-move-3d"></use></svg>ISO</button>
-        <button class="view-btn" data-view="top"><svg class="icon"><use href="#i-maximize"></use></svg>TOP</button>
-        <button class="view-btn" data-view="front"><svg class="icon"><use href="#i-scan-line"></use></svg>FRONT</button>
+        <button class="view-btn is-active" data-view="iso"><svg class="icon"><use href="#i-move-3d"></use></svg><span class="view-label">ISO</span></button>
+        <button class="view-btn" data-view="top"><svg class="icon"><use href="#i-maximize"></use></svg><span class="view-label">TOP</span></button>
+        <button class="view-btn" data-view="front"><svg class="icon"><use href="#i-scan-line"></use></svg><span class="view-label">FRONT</span></button>
         <button class="view-btn view-reset" data-view="reset" aria-label="重置视角"><svg class="icon"><use href="#i-rotate-ccw"></use></svg></button>
       </div>
 

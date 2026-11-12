@@ -42,6 +42,19 @@
       "alt": "#a3633e"
     }
   },
+  "identity": {
+    "archetype": "camera",
+    "label": "OPTICAL BENCH",
+    "construction": "optical",
+    "stage": "aperture",
+    "views": [
+      { "label": "MACRO", "theta": 0.64, "phi": 1.08, "zoom": 0.82 },
+      { "label": "TOP", "theta": 0.02, "phi": 0.16, "zoom": 0.96 },
+      { "label": "FRONT", "theta": 0, "phi": 1.32, "zoom": 0.9 }
+    ],
+    "motion": { "stagger": 0.055, "order": "optical", "connectors": true },
+    "actions": { "explode": "拆解光路", "assemble": "合拢镜组" }
+  },
   "palette": {
     "body": 3621451,
     "bodyLight": 7438475,
